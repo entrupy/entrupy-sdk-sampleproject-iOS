@@ -20,4 +20,4 @@ The Entrupy SDK supports iOS 14.0 and up.
 `import EntrupySDK`
 
 ## 5. Usage
-https://developer.entrupy.com/v1_2.html/v1_2_entrupy_sdk.html
+https://developer.entrupy.com/v1_2_entrupy_sdk.html
