@@ -9,7 +9,6 @@ import Foundation
 
 
 struct CaptureResult: Codable {
-    
     let authenticationId: String  //ID assigned by Entrupy for each submission
     let properties: CaptureResultProperties //Item details
     let status: CaptureResultStatus //Submission status
@@ -72,7 +71,7 @@ struct CaptureResultStatusResult: Codable {
 
 struct CaptureResultStatusResultDisplay: Codable {
     let header: String //Result display string
-    let message: String //More information about the result that can be displayed to the user
+    let message: String? //More information about the result that can be displayed to the user
 }
 
 struct CaptureResultTextField: Codable {
