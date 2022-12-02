@@ -43,6 +43,10 @@ struct BottomTab: View {
                 .tag(MenuItem.logout)
         }.onAppear {
             let entrupyApp = EntrupyApp.sharedInstance()
+            
+            //Uncomment to set a custom theme
+            //entrupyApp.theme = Theme()
+            
             if (!entrupyApp.isAuthorizationValid()){
                 SDKAuthorization.sharedInstance.createSDKAuthorizationRequest { success, error in
                     guard error == nil else {

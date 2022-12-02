@@ -58,7 +58,7 @@ struct InventoryList: View {
             
             if (entrupyApp.isAuthorizationValid()) {
                 entrupyApp.configDelegate = inventoryListHandlers
-                entrupyApp.fetchConfigurationType(EntrupyConfigType.ConfigTypeFull)
+                entrupyApp.fetchConfigurationType(EntrupyConfigType.ConfigTypeProduction)
             }
             else {
                 //Re-authorize and call fetchConfigurationType again
@@ -78,7 +78,7 @@ struct InventoryList: View {
                     if success {
                         print("SDK Authorization completed successfully!")
                         entrupyApp.configDelegate = inventoryListHandlers
-                        entrupyApp.fetchConfigurationType(EntrupyConfigType.ConfigTypeFull)
+                        entrupyApp.fetchConfigurationType(EntrupyConfigType.ConfigTypeProduction)
                     }
                 }
             }
