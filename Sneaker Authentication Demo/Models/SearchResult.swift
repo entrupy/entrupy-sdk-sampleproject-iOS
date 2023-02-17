@@ -10,7 +10,7 @@ import Foundation
 struct SearchResult: Codable {
     let itemCount: Int //Number of items returned
     let items: [CaptureResult]
-    let nextCursor: [String] //Next page cursor
+    let nextCursor: [String]? //Next page cursor
 }
 
 extension SearchResult {

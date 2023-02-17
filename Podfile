@@ -5,5 +5,5 @@ use_frameworks!
 
 target 'Sneaker Authentication Demo' do
     
-    pod 'EntrupySDK', '1.2.0'
+    pod 'EntrupySDK', '1.2.1'
 end

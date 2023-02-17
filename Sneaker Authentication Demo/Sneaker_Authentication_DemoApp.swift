@@ -32,4 +32,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         return true
     }
+    
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        //Call this to handle EntrupySDK upload or download events that occured while the app was in the suspended state
+        EntrupyApp.sharedInstance().interceptApplication(application, handleEventsForBackgroundURLSession: identifier, completionHandler:completionHandler)
+    }
 }
