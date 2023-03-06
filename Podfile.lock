@@ -1,16 +1,16 @@
 PODS:
-  - EntrupySDK (1.2.1)
+  - EntrupySDK (1.2.2)
 
 DEPENDENCIES:
-  - EntrupySDK (= 1.2.1)
+  - EntrupySDK (= 1.2.2)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - EntrupySDK
 
 SPEC CHECKSUMS:
-  EntrupySDK: c11a710242956e7535d2f664c9c2211665627d23
+  EntrupySDK: c56bcbaed6ca8e934192fc534f81c591a2c260d7
 
-PODFILE CHECKSUM: dc8bf76522f46a8056da49424699ba7522a3a347
+PODFILE CHECKSUM: 71e5cc306c850fcb1ea3e3f1a4492c1dcab271f2
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.0
