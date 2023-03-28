@@ -40,6 +40,7 @@
 		A51E5B5628CF4E1C000A6180 /* Authentications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentications.swift; sourceTree = "<group>"; };
 		A52677E0289037D00033DB8A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		A5CA6C4228E36C0000F225B8 /* KeychainUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUtility.swift; sourceTree = "<group>"; };
+		A5D2AE2929D35EA500FF52C2 /* Sneaker-Authentication-Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Sneaker-Authentication-Demo-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B58F155C285D4823003CC0BE /* Sneaker Authentication Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sneaker Authentication Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58F155F285D4823003CC0BE /* Sneaker_Authentication_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sneaker_Authentication_DemoApp.swift; sourceTree = "<group>"; };
 		B58F1563285D4824003CC0BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,6 +140,7 @@
 		B58F155E285D4823003CC0BE /* Sneaker Authentication Demo */ = {
 			isa = PBXGroup;
 			children = (
+				A5D2AE2929D35EA500FF52C2 /* Sneaker-Authentication-Demo-Info.plist */,
 				6F5652682937F3C60071F4C0 /* Theme */,
 				A5FA0A5A28D8BDC900696397 /* SDKAuthorization */,
 				6F0D402A28C11D990083BF94 /* Login */,
@@ -430,8 +432,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sneaker Authentication Demo/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -442,6 +444,7 @@
 					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/EntrupySDK\"",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Sneaker-Authentication-Demo-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Entrupy requires access to the camera to capture images for authentication.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -456,7 +459,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 2.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -482,10 +485,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sneaker Authentication Demo/Preview Content\"";
-				DEVELOPMENT_TEAM = 9RVZM5B68T;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = QRJ3LKR8B4;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -494,6 +499,7 @@
 					"\"${PODS_XCFRAMEWORKS_BUILD_DIR}/EntrupySDK\"",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Sneaker-Authentication-Demo-Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Entrupy requires access to the camera to capture images for authentication.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -508,13 +514,13 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 2.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
 					"\"EntrupySDK\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.entrupy.Sneaker-Authentication-Demo.felipe";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.entrupy.Sneaker-Authentication-Demo";
 				PRODUCT_NAME = "Sneaker Authentication Demo";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
