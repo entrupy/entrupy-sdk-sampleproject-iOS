@@ -14,23 +14,17 @@ struct AuthenticationsList: View {
     @Binding var selectedTab: MenuItem
     
     private let entrupyApp = EntrupyApp.sharedInstance()
+    @StateObject var flagManager = FlagManager()
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(authenticationData.authentications) { authentication in
-                    
-                    let authID = authentication.authItem.authenticationId
-                    let resultString = authentication.authItem.status.result.display.header
-                    
-                    VStack(alignment: .leading) {
-                        Text(authID)
-                            .fontWeight(.bold)
-                        Text(resultString)
-                            .foregroundColor(.gray)
-                            .font(.caption)
-                    }.padding()
+                    AuthenticationRow(data: .constant(authentication), flagAction: {
+                        self.handleFlagAction(authenticationData: authentication)
+                    }, flagManager: flagManager)
                 }
+                
                 if authenticationData.listFull == false {
                     Text("Loading...")
                         .onAppear() {
@@ -41,7 +35,7 @@ struct AuthenticationsList: View {
                                 
                                 SDKAuthorization.sharedInstance.createSDKAuthorizationRequest { success, error in
                                     guard error == nil else {
-                                        print(error?.description ?? "")
+                                        debugPrint(error?.description ?? "")
 
                                         DispatchQueue.main.async {
                                         NotificationCenter.default.post(name: .showAlert,
@@ -53,7 +47,7 @@ struct AuthenticationsList: View {
                                         return
                                     }
                                     if success {
-                                       print("SDK Authorization completed successfully!")
+                                        debugPrint("SDK Authorization completed successfully!")
                                     }
                                 }
                             }
@@ -65,7 +59,7 @@ struct AuthenticationsList: View {
                                 //Re-authorize
                                 SDKAuthorization.sharedInstance.createSDKAuthorizationRequest { success, error in
                                     guard error == nil else {
-                                        print(error?.description ?? "")
+                                        debugPrint(error?.description ?? "")
                                         
                                         DispatchQueue.main.async {
                                             NotificationCenter.default.post(name: .showAlert,
@@ -77,7 +71,7 @@ struct AuthenticationsList: View {
                                         return
                                     }
                                     if success {
-                                        print("SDK Authorization completed successfully!")
+                                        debugPrint("SDK Authorization completed successfully!")
                                         authenticationData.fetchAuthentications()
                                     }
                                 }
@@ -92,9 +86,28 @@ struct AuthenticationsList: View {
                 authenticationData.authentications = []
                 authenticationData.nextPageCursor = []
             }
-        } .navigationBarTitle("Authentications")
+            .navigationBarTitle("Results")
+        }
+        .onChange(of: flagManager.flagResult) { newValue in
+            guard let newValue = newValue, let authenticationID = newValue.authenticationId else {
+                return
+            }
+            if let index = authenticationData.authentications.firstIndex(where: { $0.authItem.authentication_id == authenticationID }) {
+                authenticationData.authentications[index].authItem.status.flag.toggle()
+            }
+        }
+    }
+    
+    
+    func handleFlagAction(authenticationData: Authentications) {
+        let isFlagged = authenticationData.authItem.status.flag.isFlagged
+        let entrupyID = authenticationData.authItem.authentication_id
+        flagManager.flagResult(with: entrupyID, flag: !isFlagged)
     }
 }
+
+
+
 class AuthenticationData: NSObject, ObservableObject , EntrupySearchDelegate {
     
     @Published var authentications = [Authentications]()
@@ -114,10 +127,9 @@ class AuthenticationData: NSObject, ObservableObject , EntrupySearchDelegate {
     
     
     func didSearchSubmissionsCompleteSuccessfully(_ result: [AnyHashable : Any]) {
-
         do {
-            let parsedData = try SearchResult(dictionary:result)
-            self.nextPageCursor = parsedData.nextCursor
+            let parsedData = try EntrupySearchResult(dictionary:result)
+            self.nextPageCursor = parsedData.next_cursor
 
             parsedData.items.forEach({ [weak self] captureResult in
                 guard let weakSelf = self else { return }
@@ -126,7 +138,7 @@ class AuthenticationData: NSObject, ObservableObject , EntrupySearchDelegate {
                 }
             })
         } catch {
-            print(error)
+            debugPrint("Error parsing data for search submission \(error)")
         }
                 
         // last page.

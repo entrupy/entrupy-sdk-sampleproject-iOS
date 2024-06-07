@@ -29,7 +29,7 @@ struct InventoryList: View {
                     captureDelegate: dataDelegate
                 )
             }
-            .navigationBarTitle("Inventory")
+            .navigationBarTitle("Home")
             .buttonStyle(PlainButtonStyle())
         }.onAppear {
             
@@ -105,7 +105,7 @@ class InventoryListDataDelegate: NSObject, EntrupyCaptureDelegate {
         DispatchQueue.main.async {
             
             do {
-                let parsedData = try CaptureResult(dictionary:result)
+                let parsedData = try EntrupyCaptureResult(dictionary:result)
                 
                 NotificationCenter.default.post(name: .showAlert,
                                                 object: AlertData(title: Text("Info"),

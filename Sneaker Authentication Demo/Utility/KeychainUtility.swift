@@ -80,7 +80,7 @@ class KeychainUtility {
                 _ = try KeychainUtility.saveToKeychain(password: password, service: Bundle.main.bundleIdentifier!, account: "kPartnerAccessToken")
             }
             catch {
-                print("Unable to save access token in keychain\n")
+                debugPrint("Unable to save access token in keychain\n")
                 throw KeychainError.updateFailure
             }
             return

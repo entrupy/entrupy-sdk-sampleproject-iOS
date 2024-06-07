@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import EntrupySDK
 
 struct Authentications: Identifiable {
     var id = UUID()
-    var authItem: CaptureResult
+    var authItem: EntrupyCaptureResult
 }
+

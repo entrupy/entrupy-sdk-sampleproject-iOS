@@ -18,6 +18,7 @@ class LoginViewModel: NSObject, ObservableObject {
     @Published var isShowHome = isPartnerAccessTokenPresent()
 
     let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
+    let sdkAuthorization = SDKAuthorization.sharedInstance
     
     //This code mocks the login code of your app
     func login() {
@@ -61,24 +62,22 @@ class LoginViewModel: NSObject, ObservableObject {
                 
                 if let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                 {
-                    print("\(jsonObject)")
                     
                     //The token your backend returns
                     if let partnerAccessToken = jsonObject["token"] as? String {
-                        
                     
                         do {
                             _ = try KeychainUtility.updateKeychain(password: Data(partnerAccessToken.utf8), service: Bundle.main.bundleIdentifier!, account: "kPartnerAccessToken")
                         }
                         catch {
-                            print("Unable to save access token in keychain\n")
+                            debugPrint("Unable to save access token in keychain\n")
                         }
 
                         AppDelegate.instance.partnerAccessToken = partnerAccessToken
                         
                         //Add this code to create an Entrupy SDK Authorization request
                         //Your app neeeds to maintain a valid authorization token in order to use the Entrupy SDK
-                        SDKAuthorization.sharedInstance.createSDKAuthorizationRequest { [weak self] (success, error) in
+                        sdkAuthorization.createSDKAuthorizationRequest { [weak self] (success, error) in
                             guard let self = self else { return }
                             guard error == nil else {
                                 
@@ -147,7 +146,7 @@ class LoginViewModel: NSObject, ObservableObject {
                 return true
             }
             catch {
-                print("Unable to fetch partner access token from keychain")
+                debugPrint("Unable to fetch partner access token from keychain")
                 return false
             }
     }

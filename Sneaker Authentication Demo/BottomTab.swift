@@ -26,13 +26,13 @@ struct BottomTab: View {
         TabView(selection: $selectedTab) {
             InventoryList(selectedTab: $selectedTab)
                 .tabItem {
-                    Label("Inventory", systemImage: "star.fill")
+                    Label("Home", systemImage: "star.fill")
                 }
                 .tag(MenuItem.inventory)
             
             AuthenticationsList(selectedTab: $selectedTab)
                 .tabItem {
-                    Label("Authentications", systemImage: "circle.fill")
+                    Label("Results", systemImage: "circle.fill")
                 }
                 .tag(MenuItem.authentications)
             

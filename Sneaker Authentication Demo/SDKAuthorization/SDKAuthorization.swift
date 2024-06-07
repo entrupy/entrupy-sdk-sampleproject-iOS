@@ -84,7 +84,6 @@ class SDKAuthorization: NSObject {
                 
                 if let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                 {
-                    print("\(jsonObject)")
                     if let signedRequest = jsonObject["signed_authorization_request"] as? String {
                         
                         self.entrupyApp.loginDelegate = self
@@ -116,7 +115,7 @@ class SDKAuthorization: NSObject {
 extension SDKAuthorization: EntrupyLoginDelegate {
     
     func didLoginUserSuccessfully(_ expirationTime: TimeInterval) {
-        print("didLoginUserSuccessfully: User Log In successful")
+        debugPrint("didLoginUserSuccessfully: User Log In successful")
         
         let defaults = UserDefaults.standard
         defaults.set(expirationTime, forKey: "EntrupySDKAuthorizationExpirationTime")

@@ -12,9 +12,10 @@
 		6F0D402E28C11D990083BF94 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0D402B28C11D990083BF94 /* LoginViewModel.swift */; };
 		6F0D402F28C11D990083BF94 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0D402C28C11D990083BF94 /* LoginView.swift */; };
 		6F56526A2937F3E80071F4C0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F5652692937F3E80071F4C0 /* Theme.swift */; };
+		8394346A2C12E5E800CAAF89 /* FlagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839434692C12E5E800CAAF89 /* FlagManager.swift */; };
+		8394346C2C12E5F300CAAF89 /* AuthenticationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8394346B2C12E5F300CAAF89 /* AuthenticationRow.swift */; };
 		A51B351428732EA100D6CDC8 /* Sneakers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B351228732EA100D6CDC8 /* Sneakers.swift */; };
-		A51E5B5328CE7441000A6180 /* CaptureResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E5B5228CE7441000A6180 /* CaptureResult.swift */; };
-		A51E5B5528CF420D000A6180 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E5B5428CF420D000A6180 /* SearchResult.swift */; };
+		A51E5B5328CE7441000A6180 /* EntrupyModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E5B5228CE7441000A6180 /* EntrupyModel+Extension.swift */; };
 		A51E5B5728CF4E1C000A6180 /* Authentications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51E5B5628CF4E1C000A6180 /* Authentications.swift */; };
 		A52677E1289037D00033DB8A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52677E0289037D00033DB8A /* Alert.swift */; };
 		A5CA6C4328E36C0000F225B8 /* KeychainUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA6C4228E36C0000F225B8 /* KeychainUtility.swift */; };
@@ -34,9 +35,10 @@
 		6F0D402C28C11D990083BF94 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		6F5652692937F3E80071F4C0 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		74AF189B3A67344B42D9EC69 /* Pods-Sneaker Authentication Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sneaker Authentication Demo.debug.xcconfig"; path = "Target Support Files/Pods-Sneaker Authentication Demo/Pods-Sneaker Authentication Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		839434692C12E5E800CAAF89 /* FlagManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagManager.swift; sourceTree = "<group>"; };
+		8394346B2C12E5F300CAAF89 /* AuthenticationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRow.swift; sourceTree = "<group>"; };
 		A51B351228732EA100D6CDC8 /* Sneakers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sneakers.swift; sourceTree = "<group>"; };
-		A51E5B5228CE7441000A6180 /* CaptureResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureResult.swift; sourceTree = "<group>"; };
-		A51E5B5428CF420D000A6180 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		A51E5B5228CE7441000A6180 /* EntrupyModel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EntrupyModel+Extension.swift"; sourceTree = "<group>"; };
 		A51E5B5628CF4E1C000A6180 /* Authentications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentications.swift; sourceTree = "<group>"; };
 		A52677E0289037D00033DB8A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		A5CA6C4228E36C0000F225B8 /* KeychainUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUtility.swift; sourceTree = "<group>"; };
@@ -82,13 +84,39 @@
 			path = Theme;
 			sourceTree = "<group>";
 		};
+		839434672C12E55900CAAF89 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B58F1597285D4B02003CC0BE /* InventoryList.swift */,
+				B58F1599285D4B19003CC0BE /* InventoryRow.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		839434682C12E59F00CAAF89 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				839434692C12E5E800CAAF89 /* FlagManager.swift */,
+				8394346B2C12E5F300CAAF89 /* AuthenticationRow.swift */,
+				B58F159F2860B536003CC0BE /* AuthenticationsList.swift */,
+			);
+			path = Results;
+			sourceTree = "<group>";
+		};
+		8394346D2C12E64200CAAF89 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				B58F1563285D4824003CC0BE /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		A51B351028732EA100D6CDC8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A51E5B5228CE7441000A6180 /* CaptureResult.swift */,
-				A51B351228732EA100D6CDC8 /* Sneakers.swift */,
-				A51E5B5428CF420D000A6180 /* SearchResult.swift */,
 				A51E5B5628CF4E1C000A6180 /* Authentications.swift */,
+				A51B351228732EA100D6CDC8 /* Sneakers.swift */,
+				A51E5B5228CE7441000A6180 /* EntrupyModel+Extension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,19 +168,18 @@
 		B58F155E285D4823003CC0BE /* Sneaker Authentication Demo */ = {
 			isa = PBXGroup;
 			children = (
-				A5D2AE2929D35EA500FF52C2 /* Sneaker-Authentication-Demo-Info.plist */,
-				6F5652682937F3C60071F4C0 /* Theme */,
-				A5FA0A5A28D8BDC900696397 /* SDKAuthorization */,
-				6F0D402A28C11D990083BF94 /* Login */,
-				A52677DF289037C50033DB8A /* Utility */,
-				A51B351028732EA100D6CDC8 /* Models */,
-				B58F155F285D4823003CC0BE /* Sneaker_Authentication_DemoApp.swift */,
-				B58F1563285D4824003CC0BE /* Assets.xcassets */,
-				B58F1565285D4824003CC0BE /* Preview Content */,
-				B58F159F2860B536003CC0BE /* AuthenticationsList.swift */,
-				B58F1597285D4B02003CC0BE /* InventoryList.swift */,
-				B58F1599285D4B19003CC0BE /* InventoryRow.swift */,
 				B58F159B285D521E003CC0BE /* BottomTab.swift */,
+				B58F155F285D4823003CC0BE /* Sneaker_Authentication_DemoApp.swift */,
+				839434672C12E55900CAAF89 /* Home */,
+				839434682C12E59F00CAAF89 /* Results */,
+				6F0D402A28C11D990083BF94 /* Login */,
+				A51B351028732EA100D6CDC8 /* Models */,
+				A5FA0A5A28D8BDC900696397 /* SDKAuthorization */,
+				6F5652682937F3C60071F4C0 /* Theme */,
+				A52677DF289037C50033DB8A /* Utility */,
+				8394346D2C12E64200CAAF89 /* Resource */,
+				A5D2AE2929D35EA500FF52C2 /* Sneaker-Authentication-Demo-Info.plist */,
+				B58F1565285D4824003CC0BE /* Preview Content */,
 			);
 			path = "Sneaker Authentication Demo";
 			sourceTree = "<group>";
@@ -289,13 +316,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F0D402D28C11D990083BF94 /* SDKAuthorization.swift in Sources */,
+				8394346C2C12E5F300CAAF89 /* AuthenticationRow.swift in Sources */,
+				8394346A2C12E5E800CAAF89 /* FlagManager.swift in Sources */,
 				A51B351428732EA100D6CDC8 /* Sneakers.swift in Sources */,
 				B58F1598285D4B02003CC0BE /* InventoryList.swift in Sources */,
 				A51E5B5728CF4E1C000A6180 /* Authentications.swift in Sources */,
 				B58F159C285D521E003CC0BE /* BottomTab.swift in Sources */,
-				A51E5B5328CE7441000A6180 /* CaptureResult.swift in Sources */,
+				A51E5B5328CE7441000A6180 /* EntrupyModel+Extension.swift in Sources */,
 				B58F15A02860B536003CC0BE /* AuthenticationsList.swift in Sources */,
-				A51E5B5528CF420D000A6180 /* SearchResult.swift in Sources */,
 				B58F159A285D4B19003CC0BE /* InventoryRow.swift in Sources */,
 				B58F1560285D4823003CC0BE /* Sneaker_Authentication_DemoApp.swift in Sources */,
 				A5CA6C4328E36C0000F225B8 /* KeychainUtility.swift in Sources */,
