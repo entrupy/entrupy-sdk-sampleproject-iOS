@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1630"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Path to the workspace directory&#10;WORKSPACE_DIR=$(dirname &quot;$WORKSPACE_PATH&quot;)&#10;&#10;# Path to your project&apos;s .pbxproj&#10;PBXPROJ_PATH_SDK=&quot;$WORKSPACE_DIR/EntrupySDK/EntrupySDK.xcodeproj/project.pbxproj&quot;&#10;# Check if running on simulator&#10;if [ &quot;$PLATFORM_NAME&quot; == &quot;iphonesimulator&quot; ]; then&#10;    echo &quot;Running on Simulator&quot;&#10;    &#10;        # Check if the TARGET_ENTRUPY macro exists and IS_AUTOMATED_TEST doesn&apos;t&#10;    if grep -q &quot;TARGET_ENTRUPY=1&quot; &quot;$PBXPROJ_PATH_SDK&quot; &amp;&amp; ! grep -q &quot;IS_AUTOMATED_TEST=1&quot; &quot;$PBXPROJ_PATH_SDK&quot;; then&#10;        # Append IS_AUTOMATED_TEST=1 to the existing macro&#10;        sed -i &apos;&apos; &apos;s/TARGET_ENTRUPY=1/TARGET_ENTRUPY=1 IS_AUTOMATED_TEST=1/&apos; &quot;$PBXPROJ_PATH_SDK&quot;&#10;        echo &quot;Injected IS_AUTOMATED_TEST macro for Simulator&quot;&#10;    else&#10;        echo &quot;No injection of IS_AUTOMATED_TEST macro for Simulator&quot;&#10;    fi&#10;else&#10;    echo &quot;Running on Real Device&quot;&#10;    &#10;    # Check if IS_AUTOMATED_TEST exists and remove it&#10;    if grep -q &quot;IS_AUTOMATED_TEST=1&quot; &quot;$PBXPROJ_PATH_CLIENT&quot;; then&#10;        sed -i &apos;&apos; &apos;s/IS_AUTOMATED_TEST=1//g&apos; &quot;$PBXPROJ_PATH_CLIENT&quot;&#10;        &#10;        if [[ $? -ne 0 ]]; then&#10;            echo &quot;Error modifying .pbxproj file&quot;&#10;            exit 1&#10;        fi&#10;        &#10;        echo &quot;Removed IS_AUTOMATED_TEST macro for Real Device&quot;&#10;    else&#10;        echo &quot;IS_AUTOMATED_TEST macro not found&quot;&#10;    fi&#10;    &#10;        # Check if IS_AUTOMATED_TEST exists and remove it&#10;    if grep -q &quot;IS_AUTOMATED_TEST=1&quot; &quot;$PBXPROJ_PATH_SDK&quot;; then&#10;        sed -i &apos;&apos; &apos;s/IS_AUTOMATED_TEST=1//g&apos; &quot;$PBXPROJ_PATH_SDK&quot;&#10;        &#10;        if [[ $? -ne 0 ]]; then&#10;            echo &quot;Error modifying .pbxproj file&quot;&#10;            exit 1&#10;        fi&#10;        &#10;        echo &quot;Removed IS_AUTOMATED_TEST macro for Real Device&quot;&#10;    else&#10;        echo &quot;IS_AUTOMATED_TEST macro not found&quot;&#10;    fi&#10;fi&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "B58F155B285D4823003CC0BE"
+                     BuildableName = "Sample App.app"
+                     BlueprintName = "Sample App"
+                     ReferencedContainer = "container:Sample App.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B58F155B285D4823003CC0BE"
+               BuildableName = "Sample App.app"
+               BlueprintName = "Sample App"
+               ReferencedContainer = "container:Sample App.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <TestPlans>
+         <TestPlanReference
+            reference = "container:Tests/Testplans/SampleAppUnitTests.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Tests/Testplans/SampleAppUITests.xctestplan"
+            default = "YES">
+         </TestPlanReference>
+      </TestPlans>
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6545E1B62DE7660200EA096D"
+               BuildableName = "Sample AppTests.xctest"
+               BlueprintName = "Sample AppTests"
+               ReferencedContainer = "container:Sample App.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "65C265442DE7746200545245"
+               BuildableName = "Sample AppUITests.xctest"
+               BlueprintName = "Sample AppUITests"
+               ReferencedContainer = "container:Sample App.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B58F155B285D4823003CC0BE"
+            BuildableName = "Sample App.app"
+            BlueprintName = "Sample App"
+            ReferencedContainer = "container:Sample App.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B58F155B285D4823003CC0BE"
+            BuildableName = "Sample App.app"
+            BlueprintName = "Sample App"
+            ReferencedContainer = "container:Sample App.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>

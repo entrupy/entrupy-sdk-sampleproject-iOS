@@ -1,9 +1,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '14.0'
+platform :ios, '15.8'
 use_frameworks!
 
-target 'Sneaker Authentication Demo' do
-    
-    pod 'EntrupySDK', '1.2.8'
+target 'Sample App' do
+
+    pod 'EntrupySDK', '1.2.9'
 end
