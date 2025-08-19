@@ -5,5 +5,5 @@ use_frameworks!
 
 target 'Sample App' do
 
-    pod 'EntrupySDK', '1.2.9'
+    pod 'EntrupySDK', '2.0.0'
 end
