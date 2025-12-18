@@ -9,9 +9,19 @@ Integrating the Entrupy SDK with your app currently requires CocoaPods to handle
 Add the EntrupySDK pod in the app target of your Podfile and then run pod install to add the EntrupySDK framework to your application.
 ```
 target 'app' do
-  pod 'EntrupySDK' , '1.0.0'
+  pod 'EntrupySDK'
 end
 ```
+Then run:
+```
+  pod install
+```
+
+To update to the latest SDK version later, run:
+```
+  pod update EntrupySDK
+```
+
 Refer to the [release page](https://github.com/entrupy/entrupy-sdk-iOS/releases) for version numbers and update the Podfile with the version you wish to download. You can also manually download and link the EntrupySDK framework.
 
 ## 3. Supported iOS Versions
