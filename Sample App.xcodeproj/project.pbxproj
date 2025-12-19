@@ -10,6 +10,8 @@
 		70FB1872F3027FE8401AB3DE /* Pods_Sample_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5870908D53CAA6D2C505BC60 /* Pods_Sample_App.framework */; };
 		83105AA02E4C6977006E7FB3 /* DetailViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */; };
 		83BEC7662BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BEC7652BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift */; };
+		83F402DC2EF5299B0037BCAE /* RetakeViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F402DB2EF5299B0037BCAE /* RetakeViewHandler.swift */; };
+		83F402DE2EF529BC0037BCAE /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F402DD2EF529BC0037BCAE /* ConfigurationManager.swift */; };
 		A582F4132B9859B500721B66 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F3F82B9859B500721B66 /* LoginViewModel.swift */; };
 		A582F4142B9859B500721B66 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F3F92B9859B500721B66 /* LoginView.swift */; };
 		A582F4152B9859B500721B66 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F3FB2B9859B500721B66 /* Theme.swift */; };
@@ -55,6 +57,8 @@
 		65EC5F222DE018A0004558D7 /* EntrupySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EntrupySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewHandler.swift; sourceTree = "<group>"; };
 		83BEC7652BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntrupyModel+Extension.swift"; sourceTree = "<group>"; };
+		83F402DB2EF5299B0037BCAE /* RetakeViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetakeViewHandler.swift; sourceTree = "<group>"; };
+		83F402DD2EF529BC0037BCAE /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
 		A582F3F82B9859B500721B66 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A582F3F92B9859B500721B66 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A582F3FB2B9859B500721B66 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 		A582F4292B985A6200721B66 /* Results */ = {
 			isa = PBXGroup;
 			children = (
+				83F402DB2EF5299B0037BCAE /* RetakeViewHandler.swift */,
 				83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */,
 				A582F40C2B9859B500721B66 /* FlagManager.swift */,
 				A582F4092B9859B500721B66 /* AuthenticationRow.swift */,
@@ -173,6 +178,7 @@
 		A582F42A2B985A7200721B66 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				83F402DD2EF529BC0037BCAE /* ConfigurationManager.swift */,
 				A582F3FE2B9859B500721B66 /* InventoryList.swift */,
 				A582F40B2B9859B500721B66 /* InventoryRow.swift */,
 			);
@@ -392,9 +398,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Sample App/Pods-Sample App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Sample App/Pods-Sample App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -437,7 +447,9 @@
 				A5ECD4212E4E2420008A4EEA /* InventoryData.swift in Sources */,
 				A582F4182B9859B500721B66 /* InventoryList.swift in Sources */,
 				A5ECD4232E4E244B008A4EEA /* InventoryItem.swift in Sources */,
+				83F402DC2EF5299B0037BCAE /* RetakeViewHandler.swift in Sources */,
 				A582F4252B9859B500721B66 /* SDKAuthorization.swift in Sources */,
+				83F402DE2EF529BC0037BCAE /* ConfigurationManager.swift in Sources */,
 				A582F4172B9859B500721B66 /* BottomTab.swift in Sources */,
 				A582F4132B9859B500721B66 /* LoginViewModel.swift in Sources */,
 				A582F4162B9859B500721B66 /* AuthenticationsList.swift in Sources */,

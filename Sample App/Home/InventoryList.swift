@@ -11,9 +11,10 @@ import EntrupySDK
 struct InventoryList: View {
     let entrupyApp = EntrupyApp.sharedInstance()
 
-    private let inventoryListHandlers = InventoryListHandlers()
     private var dataDelegate = InventoryListDataDelegate()
-
+    @StateObject private var configManager = ConfigurationManager()
+    @State private var isLoading = false
+    
     @Binding var selectedTab: MenuItem
 
     init(selectedTab: Binding<MenuItem>) {
@@ -22,6 +23,13 @@ struct InventoryList: View {
     
     var body: some View {
         NavigationView {
+            if isLoading {
+                VStack {
+                    ProgressView("Loading configuration...")
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .padding()
+                }
+            } else if configManager.isConfigurationLoaded {
                 List {
                     ForEach(InventoryData.allCategories, id: \.0) { category, items in
                         Section(header: Text(category)) {
@@ -36,58 +44,65 @@ struct InventoryList: View {
                 }
                 .navigationBarTitle("Home")
                 .buttonStyle(PlainButtonStyle())
-            }.onAppear {
-            
+
+            } else {
+                VStack {
+                    Text("Configuration not loaded")
+                        .foregroundColor(.secondary)
+                        .padding()
+                    Button("Retry Configuration") {
+                        loadConfiguration()
+                    }
+                    .foregroundColor(.blue)
+                    .padding()
+                }
+            }
+        }.onAppear {
             guard selectedTab == .inventory else { return }
+            guard !isLoading && !configManager.isConfigurationLoaded else { return }
             
             if SDKAuthorization.sharedInstance.isAboutToExpire() {
-
                 SDKAuthorization.sharedInstance.createSDKAuthorizationRequest { success, error in
                     guard error == nil else {
-                        print(error?.description ?? "")
-
                         DispatchQueue.main.async {
                         NotificationCenter.default.post(name: .showAlert,
                                                         object: AlertData(title: Text("Error"),
                                                                           message: Text(error?.description ?? ""),
                                                                           dismissButton: .default(Text("OK"))))
                         }
-                        
                         return
-                    }
-                    if success {
-                       print("SDK Authorization completed successfully!")
                     }
                 }
             }
             
             if (entrupyApp.isAuthorizationValid()) {
-                entrupyApp.configDelegate = inventoryListHandlers
-                entrupyApp.fetchConfigurationType(EntrupyConfigType.ConfigTypeProduction)
+                loadConfiguration()
             }
             else {
-                //Re-authorize and call fetchConfigurationType again
                 SDKAuthorization.sharedInstance.createSDKAuthorizationRequest { success, error in
                     guard error == nil else {
-                        print(error?.description ?? "")
-
                         DispatchQueue.main.async {
                         NotificationCenter.default.post(name: .showAlert,
                                                         object: AlertData(title: Text("Error"),
                                                                           message: Text(error?.description ?? ""),
                                                                           dismissButton: .default(Text("OK"))))
                         }
-                        
                         return
                     }
                     if success {
-                        print("SDK Authorization completed successfully!")
-                        entrupyApp.configDelegate = inventoryListHandlers
-                        entrupyApp.fetchConfigurationType(EntrupyConfigType.ConfigTypeProduction)
+                        loadConfiguration()
                     }
                 }
             }
         }
+        .onChange(of: configManager.isConfigurationLoaded) { _ in
+            isLoading = false
+        }
+    }
+    
+    private func loadConfiguration() {
+        isLoading = true
+        configManager.loadConfiguration()
     }
 }
 
@@ -139,26 +154,6 @@ class InventoryListDataDelegate: NSObject, EntrupyCaptureDelegate {
                                                           dismissButton: .default(Text("OK"))))
         }
     }
-}
-class InventoryListHandlers: NSObject, EntrupyConfigDelegate {
-    
-    static var isConfigurationLoaded = false
-    
-    func didFetchConfigurationSuccessfully() {
-        print("The configuration was fetched successfully\n")
-        InventoryListHandlers.isConfigurationLoaded = true
-    }
-    
-    func didFetchConfigurationFailWithError(_ errorCode: EntrupyErrorCode, description: String, localizedDescription: String) {
-        DispatchQueue.main.async {
-
-        NotificationCenter.default.post(name: .showAlert,
-                                        object: AlertData(title: Text("didFetchConfigurationFailWithError"),
-                                                          message: Text(localizedDescription),
-                                                          dismissButton: .default(Text("OK"))))
-        }
-    }
-
 }
 
 

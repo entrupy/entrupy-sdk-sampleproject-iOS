@@ -16,17 +16,6 @@ struct InventoryRow: View {
     private let entrupyApp = EntrupyApp.sharedInstance()
     private let rootViewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController
     
-    private enum CaptureError: LocalizedError {
-        case configurationNotLoaded
-        
-        var errorDescription: String? {
-            switch self {
-            case .configurationNotLoaded:
-                return "Configuration is still loading. Please try again in a moment."
-            }
-        }
-    }
-    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -47,7 +36,6 @@ struct InventoryRow: View {
 
     private func handleCaptureTap() {
         do {
-            try validateConfiguration()
             try item.validateRequiredFields()  // Using item's validation
             let input = item.buildInput()      // Using item's input building
             
@@ -60,12 +48,6 @@ struct InventoryRow: View {
         }
     }
     
-    private func validateConfiguration() throws {
-        guard InventoryListHandlers.isConfigurationLoaded else {
-            throw CaptureError.configurationNotLoaded
-        }
-    }
-        
     private func withAuthorization(entrupyApp: EntrupyApp, then action: @escaping () -> Void) {
         if entrupyApp.isAuthorizationValid() {
             action()
