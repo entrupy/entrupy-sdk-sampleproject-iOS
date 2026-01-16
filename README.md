@@ -17,7 +17,7 @@ Then run:
   pod install
 ```
 
-To update to the latest SDK version later, run:
+After the first installation, in order to update to the latest SDK version later, run:
 ```
   pod update EntrupySDK
 ```
