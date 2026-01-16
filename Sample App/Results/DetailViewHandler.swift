@@ -11,7 +11,9 @@ import SwiftUI
 
 class DetailViewHandler: NSObject, ObservableObject, EntrupyDetailViewDelegate {
     
-    func showDetailView(for entrupyID: String, using entrupyApp: EntrupyApp) {
+    let entrupyApp = EntrupyApp.sharedInstance()
+    
+    func showDetailView(for entrupyID: String) {
         entrupyApp.detailViewDelegate = self
         let viewConfiguration = EntrupyDetailViewConfiguration(displayTimeline: true,
                                                                displayUploadedImages: true,

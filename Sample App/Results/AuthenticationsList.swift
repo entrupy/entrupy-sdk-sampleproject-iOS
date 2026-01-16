@@ -16,16 +16,26 @@ struct AuthenticationsList: View {
     private let entrupyApp = EntrupyApp.sharedInstance()
     @StateObject var flagManager = FlagManager()
     @StateObject var detailViewHandler = DetailViewHandler()
+    @StateObject var retakeViewHandler = RetakeViewHandler()
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(authenticationData.authentications) { authentication in
-                    AuthenticationRow(data: .constant(authentication), flagAction: {
-                        self.handleFlagAction(authenticationData: authentication)
-                    }, flagManager: flagManager,didTapRow: {
-                        self.handleRowTap(for: authentication)
-                    })
+                    AuthenticationRow(
+                        data: .constant(authentication),
+                        flagManager: flagManager,
+                        flagAction: {
+                            self.handleFlagAction(authenticationData: authentication)
+                        },
+                        retakeViewHandler: retakeViewHandler,
+                        retakeAction: {
+                            self.handleRetakeAction(for: authentication)
+                        },
+                        didTapRow: {
+                            self.handleRowTap(for: authentication)
+                        }
+                    )
                 }
                 
                 if authenticationData.listFull == false {
@@ -105,12 +115,21 @@ struct AuthenticationsList: View {
     func handleFlagAction(authenticationData: Authentications) {
         let isFlagged = authenticationData.authItem.status.flag.isFlagged
         let entrupyID = authenticationData.authItem.authentication_id
-        flagManager.flagResult(with: entrupyID, flag: !isFlagged)
+        if isFlagged {
+            flagManager.clearFlag(for: entrupyID)
+        } else {
+            flagManager.presentFlagView(for: entrupyID)
+        }
     }
     
     func handleRowTap(for authentication: Authentications) {        
         let entrupyID = authentication.authItem.authentication_id
-        detailViewHandler.showDetailView(for: entrupyID, using: entrupyApp)
+        detailViewHandler.showDetailView(for: entrupyID)
+    }
+    
+    func handleRetakeAction(for authentication: Authentications) {
+        let entrupyID = authentication.authItem.authentication_id
+        retakeViewHandler.openRetake(for: entrupyID)
     }
 }
 

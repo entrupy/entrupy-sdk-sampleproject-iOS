@@ -25,10 +25,10 @@ After the first installation, in order to update to the latest SDK version later
 Refer to the [release page](https://github.com/entrupy/entrupy-sdk-iOS/releases) for version numbers and update the Podfile with the version you wish to download. You can also manually download and link the EntrupySDK framework.
 
 ## 3. Supported iOS Versions
-The Entrupy SDK supports iOS 14.0 and up.
+The Entrupy SDK supports iOS 15.8 and up.
 
 ## 4. Importing the SDK
 `import EntrupySDK`
 
 ## 5. Usage
-https://developer.entrupy.com/v1_2_entrupy_sdk.html
+[https://developer.entrupy.com/v1_2_entrupy_sdk.html](https://developer.entrupy.com/docs/mobile-sdks/ios/overview)

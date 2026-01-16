@@ -10,10 +10,12 @@ import SwiftUI
 struct AuthenticationRow: View {
     
     @Binding var data:Authentications
+    
+    let flagManager:FlagManager
     var flagAction: () -> Void
     
-    @State var showLoader:Bool = false
-    let flagManager:FlagManager
+    let retakeViewHandler: RetakeViewHandler
+    var retakeAction: () -> Void
     
     var didTapRow: () -> Void
     
@@ -25,7 +27,21 @@ struct AuthenticationRow: View {
         }else {
             return "\(authenticationStatus) (\(flagStatusId.description))"
         }
-
+    }
+    
+    var hasRetake:Bool {
+        if let customerState = data.authItem.batch_request?.customer_state, customerState == "batch_open" {
+            return true
+        }
+        return false
+    }
+    
+    var showFlagLoader: Bool {
+        flagManager.isLoading && flagManager.loadingEntrupyID == data.authItem.authentication_id
+    }
+    
+    var showRetakeLoader: Bool {
+        retakeViewHandler.isLoading && retakeViewHandler.loadingEntrupyID == data.authItem.authentication_id
     }
     
     var body: some View {
@@ -54,10 +70,9 @@ struct AuthenticationRow: View {
                 
                 if isFlaggable  {
                     Button(action: {
-                        showLoader = true
                         flagAction()
                     }) {
-                        if showLoader {
+                        if showFlagLoader {
                             ProgressView()
                         }else {
                             Text(isFlagged ? "Clear Flag" : "Flag Result")
@@ -65,10 +80,28 @@ struct AuthenticationRow: View {
                         }
                     }
                     .buttonStyle(.plain)
-                    .onChange(of: flagManager.flagResult) { _ in
-                        showLoader = false
-                    }
                 }
+                
+                if isFlaggable && hasRetake {
+                    Divider()
+                }
+                
+                //Note: Refer to the SDK documentation to learn about other ways of knowing if an item has an open retake request.
+                if hasRetake  {
+                    Button(action: {
+                        retakeAction()
+                    }) {
+                        if showRetakeLoader {
+                            ProgressView()
+                        }else {
+                            Text("Retake")
+                                .foregroundColor(.blue).font(.system(size: 14))
+                        }
+                    }
+                    .buttonStyle(.plain)
+                }
+                
+                
                 
                 Image(systemName: "chevron.right")
                     .foregroundColor(.gray)
