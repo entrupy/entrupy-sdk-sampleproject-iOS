@@ -13,7 +13,8 @@ protocol InventoryItem {
     var customerItemID: String? { get }
     var displayName: String { get }
     var displaySubtitle: String { get }
-    
+    var id: String { get }
+
     func validateRequiredFields() throws
     func buildInput() -> [String: Any]
 }
@@ -30,7 +31,8 @@ struct SneakerItem: InventoryItem {
     
     var displayName: String { brand }
     var displaySubtitle: String { styleName }
-    
+    var id: String { customerItemID ?? "sneaker-\(brand)-\(styleName)" }
+
     func validateRequiredFields() throws {
         var missingFields: [String] = []
         
@@ -64,7 +66,8 @@ struct ApparelItem: InventoryItem {
     
     var displayName: String { brand }
     var displaySubtitle: String { itemType }
-    
+    var id: String { customerItemID ?? "apparel-\(brand)-\(itemType)" }
+
     func validateRequiredFields() throws {
         var missingFields: [String] = []
         
@@ -95,6 +98,7 @@ struct LuxuryItem: InventoryItem {
 
     var displayName: String { brand }
     var displaySubtitle: String { material ?? "" }
+    var id: String { customerItemID ?? "luxury-\(brand)-\(material ?? "")" }
 
     func validateRequiredFields() throws {
      var missingFields: [String] = []
@@ -116,9 +120,41 @@ struct LuxuryItem: InventoryItem {
     }
 }
 
+// Fingerprint model (new)
+struct FingerprintItem: InventoryItem {
+    let productCategory: String  // accepted: "luxury", "sneaker" or "apparel"
+    let captureWorkflow: String  // "fingerprint_register" or "fingerprint_compare"
+    let actionName: String   // "Register" or "Compare"
+    var customerItemID: String?
+
+    init(productCategory: String, captureWorkflow: String, actionName: String, customerItemID: String? = nil) {
+        self.productCategory = productCategory
+        self.captureWorkflow = captureWorkflow
+        self.actionName = actionName
+        self.customerItemID = customerItemID
+    }
+
+    var displayName: String { actionName }
+    var displaySubtitle: String { "" }
+    var id: String { "\(customerItemID ?? "unknown")-\(actionName)" }
+
+    func validateRequiredFields() throws {
+        // Fingerprint items always have required fields set
+        // No validation needed as all fields are provided
+    }
+
+    func buildInput() -> [String: Any] {
+        return [
+            "product_category": productCategory,
+            "customer_item_id": customerItemID ?? "FP-\(UUID().uuidString.prefix(8))",
+            "capture_workflow": captureWorkflow
+        ]
+    }
+}
+
 enum InventoryItemError: LocalizedError {
     case missingMandatoryFields(String)
-    
+
     var errorDescription: String? {
         switch self {
         case .missingMandatoryFields(let message):

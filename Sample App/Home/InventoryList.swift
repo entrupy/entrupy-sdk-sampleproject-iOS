@@ -31,13 +31,19 @@ struct InventoryList: View {
                 }
             } else if configManager.isConfigurationLoaded {
                 List {
-                    ForEach(InventoryData.allCategories, id: \.0) { category, items in
-                        Section(header: Text(category)) {
-                            ForEach(items, id: \.productCategory) { item in
-                                InventoryRow(
-                                    item: item,
-                                    captureDelegate: dataDelegate
-                                )
+                    ForEach(InventoryData.allSections, id: \.0) { mainSection, subsections in
+                        Section(header: Text(mainSection).font(.title2).bold()) {
+                            // Subsections (Luxury, Sneakers, Apparel)
+                            ForEach(subsections, id: \.0) { subsectionName, items in
+                                Section(header: Text(subsectionName).font(.headline)) {
+                                    // Items within subsection
+                                    ForEach(items, id: \.id) { item in
+                                        InventoryRow(
+                                            item: item,
+                                            captureDelegate: dataDelegate
+                                        )
+                                    }
+                                }
                             }
                         }
                     }
