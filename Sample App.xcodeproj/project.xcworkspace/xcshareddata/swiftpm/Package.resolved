@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/entrupy/entrupy-sdk-iOS.git",
       "state" : {
-        "revision" : "d5d6184cb9396b9798ef84b10f5ef22fa484d8a5",
-        "version" : "2.0.7"
+        "revision" : "93a6272c1df1761b0fc1612196da720db5158aea",
+        "version" : "2.0.9"
       }
     }
   ],
