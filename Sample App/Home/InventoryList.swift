@@ -31,6 +31,7 @@ struct InventoryList: View {
                 }
             } else if configManager.isConfigurationLoaded {
                 List {
+                    // Main sections (Authentication, Fingerprint)
                     ForEach(InventoryData.allSections, id: \.0) { mainSection, subsections in
                         Section(header: Text(mainSection).font(.title2).bold()) {
                             // Subsections (Luxury, Sneakers, Apparel)

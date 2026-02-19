@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		43574ACB2F2154AD0069A8D9 /* entrupy-sdk-ios in Frameworks */ = {isa = PBXBuildFile; productRef = 43574ACA2F2154AD0069A8D9 /* entrupy-sdk-ios */; };
 		83105AA02E4C6977006E7FB3 /* DetailViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */; };
+		834FE6232F476C170024F499 /* MarketEdgeViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834FE6222F476C170024F499 /* MarketEdgeViewHandler.swift */; };
 		83BEC7662BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BEC7652BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift */; };
 		83F402DC2EF5299B0037BCAE /* RetakeViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F402DB2EF5299B0037BCAE /* RetakeViewHandler.swift */; };
 		83F402DE2EF529BC0037BCAE /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F402DD2EF529BC0037BCAE /* ConfigurationManager.swift */; };
@@ -54,6 +55,7 @@
 		65C265452DE7746200545245 /* Sample AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sample AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65EC5F222DE018A0004558D7 /* EntrupySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EntrupySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewHandler.swift; sourceTree = "<group>"; };
+		834FE6222F476C170024F499 /* MarketEdgeViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketEdgeViewHandler.swift; sourceTree = "<group>"; };
 		83BEC7652BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntrupyModel+Extension.swift"; sourceTree = "<group>"; };
 		83F402DB2EF5299B0037BCAE /* RetakeViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetakeViewHandler.swift; sourceTree = "<group>"; };
 		83F402DD2EF529BC0037BCAE /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				A582F40C2B9859B500721B66 /* FlagManager.swift */,
 				A582F4092B9859B500721B66 /* AuthenticationRow.swift */,
 				A582F3FC2B9859B500721B66 /* AuthenticationsList.swift */,
+				834FE6222F476C170024F499 /* MarketEdgeViewHandler.swift */,
 			);
 			path = Results;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				A582F41E2B9859B500721B66 /* SampleApp.swift in Sources */,
 				A582F4242B9859B500721B66 /* FlagManager.swift in Sources */,
 				A582F4232B9859B500721B66 /* InventoryRow.swift in Sources */,
+				834FE6232F476C170024F499 /* MarketEdgeViewHandler.swift in Sources */,
 				A582F4272B9859B500721B66 /* KeychainUtility.swift in Sources */,
 				A582F4152B9859B500721B66 /* Theme.swift in Sources */,
 				A582F41B2B9859B500721B66 /* Authentications.swift in Sources */,

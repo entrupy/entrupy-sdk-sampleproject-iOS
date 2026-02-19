@@ -17,6 +17,7 @@ struct AuthenticationsList: View {
     @StateObject var flagManager = FlagManager()
     @StateObject var detailViewHandler = DetailViewHandler()
     @StateObject var retakeViewHandler = RetakeViewHandler()
+    @StateObject var marketViewHandler = MarketEdgeViewHandler()
     
     var body: some View {
         NavigationView {
@@ -31,6 +32,10 @@ struct AuthenticationsList: View {
                         retakeViewHandler: retakeViewHandler,
                         retakeAction: {
                             self.handleRetakeAction(for: authentication)
+                        },
+                        marketEdgeViewHandler: marketViewHandler,
+                        marketEdgeAction: {
+                            self.handleMarketEdgeAction(for: authentication)
                         },
                         didTapRow: {
                             self.handleRowTap(for: authentication)
@@ -130,6 +135,11 @@ struct AuthenticationsList: View {
     func handleRetakeAction(for authentication: Authentications) {
         let entrupyID = authentication.authItem.authentication_id
         retakeViewHandler.openRetake(for: entrupyID)
+    }
+    
+    func handleMarketEdgeAction(for authentication: Authentications) {
+        let entrupyID = authentication.authItem.authentication_id
+        marketViewHandler.openMarketEdgeView(for: entrupyID)
     }
 }
 

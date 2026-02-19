@@ -17,9 +17,12 @@ struct AuthenticationRow: View {
     let retakeViewHandler: RetakeViewHandler
     var retakeAction: () -> Void
     
+    let marketEdgeViewHandler: MarketEdgeViewHandler
+    var marketEdgeAction: () -> Void
+    
     var didTapRow: () -> Void
     
-    var status:String {
+    var flagStatus:String {
         let flagStatusId = data.authItem.status.flag.id
         let authenticationStatus = data.authItem.status.result.display.header
         if flagStatusId == .none {
@@ -35,6 +38,13 @@ struct AuthenticationRow: View {
         }
         return false
     }
+
+    var isMarketEdgeEnabledForItem:Bool {
+        if let marketEdgeEnable = data.authItem.more_details?.catalog_insights?.supported {
+            return marketEdgeEnable
+        }
+        return false
+    }
     
     var showFlagLoader: Bool {
         flagManager.isLoading && flagManager.loadingEntrupyID == data.authItem.authentication_id
@@ -42,6 +52,10 @@ struct AuthenticationRow: View {
     
     var showRetakeLoader: Bool {
         retakeViewHandler.isLoading && retakeViewHandler.loadingEntrupyID == data.authItem.authentication_id
+    }
+    
+    var showMarketEdgeLoader: Bool {
+        marketEdgeViewHandler.isLoading && marketEdgeViewHandler.loadingEntrupyID == data.authItem.authentication_id
     }
     
     var body: some View {
@@ -54,7 +68,7 @@ struct AuthenticationRow: View {
                         .fontWeight(.medium)
                         .foregroundColor(.black)
                     
-                    Text(status)
+                    Text(flagStatus)
                         .foregroundColor(.gray)
                         .font(.caption)
                 }
@@ -99,6 +113,23 @@ struct AuthenticationRow: View {
                         }
                     }
                     .buttonStyle(.plain)
+                }
+                
+                if isFlaggable && isMarketEdgeEnabledForItem {
+                    Divider()
+                }
+                
+                if isMarketEdgeEnabledForItem  {
+                    Button(action: {
+                        marketEdgeAction()
+                    }) {
+                        if showMarketEdgeLoader {
+                            ProgressView()
+                        }else {
+                            Text("MarketEdge")
+                                .foregroundColor(.blue).font(.system(size: 14))
+                        }
+                    }
                 }
                 
                 
