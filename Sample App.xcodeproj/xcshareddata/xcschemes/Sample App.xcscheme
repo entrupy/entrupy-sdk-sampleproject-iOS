@@ -51,7 +51,10 @@
             reference = "container:Tests/Testplans/SampleAppUnitTests.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:Tests/Testplans/SampleAppUITests.xctestplan"
+            reference = "container:Tests/Testplans/SampleAppUITests2.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:Tests/Testplans/SampleAppUITests1.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -124,5 +127,23 @@
    <ArchiveAction
       buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "echo &quot;Running on Real Device&quot;&#10;&#10;# Path to the workspace directory&#10;WORKSPACE_DIR=$(dirname &quot;$WORKSPACE_PATH&quot;)&#10;&#10;# Path to your project&apos;s .pbxproj&#10;PBXPROJ_PATH=&quot;$WORKSPACE_DIR/EntrupySDK/EntrupySDK.xcodeproj/project.pbxproj&quot;&#10;&#10;# Check if IS_AUTOMATED_TEST exists and remove it&#10;if grep -q &quot;IS_AUTOMATED_TEST=1&quot; &quot;$PBXPROJ_PATH&quot;; then&#10;    sed -i &apos;&apos; &apos;s/IS_AUTOMATED_TEST=1//g&apos; &quot;$PBXPROJ_PATH&quot;&#10;    &#10;    if [[ $? -ne 0 ]]; then&#10;        echo &quot;Error modifying .pbxproj file&quot;&#10;        exit 1&#10;    fi&#10;    &#10;    echo &quot;Removed IS_AUTOMATED_TEST macro for Real Device&quot;&#10;else&#10;    echo &quot;IS_AUTOMATED_TEST macro not found&quot;&#10;fi&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "B58F155B285D4823003CC0BE"
+                     BuildableName = "Sample App.app"
+                     BlueprintName = "Sample App"
+                     ReferencedContainer = "container:Sample App.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
    </ArchiveAction>
 </Scheme>
