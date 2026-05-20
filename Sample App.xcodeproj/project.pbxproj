@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6556D7C32DE8E4E800608566 /* SampleAppUnitTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 6556D7C22DE8E4E800608566 /* SampleAppUnitTests.xctestplan */; };
-		65EE58232F2DAE7C00E13508 /* SampleAppUITests1.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 65EE581F2F2DAE6F00E13508 /* SampleAppUITests1.xctestplan */; };
-		65EE58242F2DAE7C00E13508 /* SampleAppUITests2.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 65EE58202F2DAE6F00E13508 /* SampleAppUITests2.xctestplan */; };
 		830125E72E6970BA0029E7DE /* RetakeViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830125E62E6970BA0029E7DE /* RetakeViewHandler.swift */; };
 		83105AA02E4C6977006E7FB3 /* DetailViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */; };
 		833D20352F0D1B36005A6DE8 /* MarketEdgeViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D20342F0D1B36005A6DE8 /* MarketEdgeViewHandler.swift */; };
+		838515BB2FBDD059004381C1 /* entrupy-sdk-ios in Frameworks */ = {isa = PBXBuildFile; productRef = 838515BA2FBDD059004381C1 /* entrupy-sdk-ios */; };
 		839292942E659C6900E6FB88 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839292932E659C6900E6FB88 /* ConfigurationManager.swift */; };
 		83BEC7662BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BEC7652BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift */; };
 		A582F4132B9859B500721B66 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F3F82B9859B500721B66 /* LoginViewModel.swift */; };
@@ -33,7 +31,6 @@
 		A582F4282B9859B500721B66 /* Foundation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F4122B9859B500721B66 /* Foundation+Extensions.swift */; };
 		A5ECD4212E4E2420008A4EEA /* InventoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ECD4202E4E2420008A4EEA /* InventoryData.swift */; };
 		A5ECD4232E4E244B008A4EEA /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ECD4222E4E244B008A4EEA /* InventoryItem.swift */; };
-		C1A8DFE2343225D22532CEA8 /* Pods_Sample_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FD27A063A63C52CF577AE1 /* Pods_Sample_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,14 +51,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		58FD27A063A63C52CF577AE1 /* Pods_Sample_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6545E1B72DE7660200EA096D /* Sample AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sample AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6556D7C22DE8E4E800608566 /* SampleAppUnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SampleAppUnitTests.xctestplan; sourceTree = "<group>"; };
 		65C265452DE7746200545245 /* Sample AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sample AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65EC5F222DE018A0004558D7 /* EntrupySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EntrupySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		65EE581F2F2DAE6F00E13508 /* SampleAppUITests1.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SampleAppUITests1.xctestplan; sourceTree = "<group>"; };
-		65EE58202F2DAE6F00E13508 /* SampleAppUITests2.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SampleAppUITests2.xctestplan; sourceTree = "<group>"; };
-		7ACF670B09E310CCB458F3E1 /* Pods-Sample App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample App.debug.xcconfig"; path = "Target Support Files/Pods-Sample App/Pods-Sample App.debug.xcconfig"; sourceTree = "<group>"; };
 		830125E62E6970BA0029E7DE /* RetakeViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetakeViewHandler.swift; sourceTree = "<group>"; };
 		83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewHandler.swift; sourceTree = "<group>"; };
 		833D20342F0D1B36005A6DE8 /* MarketEdgeViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketEdgeViewHandler.swift; sourceTree = "<group>"; };
@@ -87,18 +79,7 @@
 		A5ECD4202E4E2420008A4EEA /* InventoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryData.swift; sourceTree = "<group>"; };
 		A5ECD4222E4E244B008A4EEA /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 		B58F155C285D4823003CC0BE /* Sample App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1D0924C2BE6257EDF609CB4 /* Pods-Sample App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample App.release.xcconfig"; path = "Target Support Files/Pods-Sample App/Pods-Sample App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		65C265462DE7746200545245 /* SampleAppUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
-			path = SampleAppUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6545E1B42DE7660200EA096D /* Frameworks */ = {
@@ -119,42 +100,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1A8DFE2343225D22532CEA8 /* Pods_Sample_App.framework in Frameworks */,
+				838515BB2FBDD059004381C1 /* entrupy-sdk-ios in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A9E4AE4F84E2D2E06B8E127 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7ACF670B09E310CCB458F3E1 /* Pods-Sample App.debug.xcconfig */,
-				C1D0924C2BE6257EDF609CB4 /* Pods-Sample App.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
-		6556D7C02DE8E4BA00608566 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				6556D7C12DE8E4CB00608566 /* Testplans */,
-				65C265462DE7746200545245 /* SampleAppUITests */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		6556D7C12DE8E4CB00608566 /* Testplans */ = {
-			isa = PBXGroup;
-			children = (
-				65EE581F2F2DAE6F00E13508 /* SampleAppUITests1.xctestplan */,
-				65EE58202F2DAE6F00E13508 /* SampleAppUITests2.xctestplan */,
-				6556D7C22DE8E4E800608566 /* SampleAppUnitTests.xctestplan */,
-			);
-			path = Testplans;
-			sourceTree = "<group>";
-		};
 		A582F3F72B9859B500721B66 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				65EC5F222DE018A0004558D7 /* EntrupySDK.framework */,
-				58FD27A063A63C52CF577AE1 /* Pods_Sample_App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -244,11 +195,9 @@
 		B58F1553285D4823003CC0BE = {
 			isa = PBXGroup;
 			children = (
-				6556D7C02DE8E4BA00608566 /* Tests */,
 				B58F155E285D4823003CC0BE /* Sample App */,
 				B58F155D285D4823003CC0BE /* Products */,
 				AC9390226EA6F66ACC0E173A /* Frameworks */,
-				2A9E4AE4F84E2D2E06B8E127 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -314,9 +263,6 @@
 			dependencies = (
 				65C2654C2DE7746200545245 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				65C265462DE7746200545245 /* SampleAppUITests */,
-			);
 			name = "Sample AppUITests";
 			productName = "Sample AppUITests";
 			productReference = 65C265452DE7746200545245 /* Sample AppUITests.xctest */;
@@ -326,11 +272,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B58F1580285D4824003CC0BE /* Build configuration list for PBXNativeTarget "Sample App" */;
 			buildPhases = (
-				FED3E4D54A88EEA135EAE770 /* [CP] Check Pods Manifest.lock */,
 				B58F1558285D4823003CC0BE /* Sources */,
 				B58F1559285D4823003CC0BE /* Frameworks */,
 				B58F155A285D4823003CC0BE /* Resources */,
-				50DD0DF1A79CA6A23EEF10BE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -373,6 +317,9 @@
 				Base,
 			);
 			mainGroup = B58F1553285D4823003CC0BE;
+			packageReferences = (
+				838515B92FBDD058004381C1 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B58F155D285D4823003CC0BE /* Products */;
 			projectDirPath = "";
@@ -390,7 +337,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6556D7C32DE8E4E800608566 /* SampleAppUnitTests.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,8 +344,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65EE58232F2DAE7C00E13508 /* SampleAppUITests1.xctestplan in Resources */,
-				65EE58242F2DAE7C00E13508 /* SampleAppUITests2.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,45 +358,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		50DD0DF1A79CA6A23EEF10BE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sample App/Pods-Sample App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sample App/Pods-Sample App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sample App/Pods-Sample App-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FED3E4D54A88EEA135EAE770 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Sample App-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -727,7 +632,6 @@
 		};
 		B58F1581285D4824003CC0BE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7ACF670B09E310CCB458F3E1 /* Pods-Sample App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -781,7 +685,6 @@
 		};
 		B58F1582285D4824003CC0BE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1D0924C2BE6257EDF609CB4 /* Pods-Sample App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -871,6 +774,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		838515B92FBDD058004381C1 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/entrupy/entrupy-sdk-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.13;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		838515BA2FBDD059004381C1 /* entrupy-sdk-ios */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 838515B92FBDD058004381C1 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */;
+			productName = "entrupy-sdk-ios";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B58F1554285D4823003CC0BE /* Project object */;
 }
