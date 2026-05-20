@@ -91,13 +91,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		6545E1B82DE7660200EA096D /* SampleAppTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
-			path = SampleAppTests;
-			sourceTree = "<group>";
-		};
 		65C265462DE7746200545245 /* SampleAppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -147,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				6556D7C12DE8E4CB00608566 /* Testplans */,
-				6545E1B82DE7660200EA096D /* SampleAppTests */,
 				65C265462DE7746200545245 /* SampleAppUITests */,
 			);
 			path = Tests;
@@ -303,9 +295,6 @@
 			);
 			dependencies = (
 				6545E1BC2DE7660200EA096D /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				6545E1B82DE7660200EA096D /* SampleAppTests */,
 			);
 			name = "Sample AppTests";
 			productName = "Sample AppTests";

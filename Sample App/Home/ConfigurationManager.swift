@@ -12,12 +12,12 @@ import SwiftUI
 class ConfigurationManager: NSObject, ObservableObject {
     let entrupyApp = EntrupyApp.sharedInstance()
     @Published var isConfigurationLoaded = false
-    
+
     override init() {
         super.init()
         entrupyApp.configDelegate = self
     }
-    
+
     func loadConfiguration() {
         debugPrint("ConfigurationManager: Starting configuration load...")
         entrupyApp.fetchConfigurationType(EntrupyConfigType.ConfigTypeProduction)
@@ -32,7 +32,7 @@ extension ConfigurationManager: EntrupyConfigDelegate {
             self.isConfigurationLoaded = true
         }
     }
-    
+
     func didFetchConfigurationFailWithError(_ errorCode: EntrupyErrorCode, description: String, localizedDescription: String) {
         debugPrint("ConfigurationManager: didFetchConfigurationFailWithError - \(localizedDescription)")
         DispatchQueue.main.async {

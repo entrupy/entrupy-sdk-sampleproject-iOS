@@ -29,18 +29,12 @@ struct BottomTab: View {
                     Label("Home", systemImage: "star.fill")
                 }
                 .tag(MenuItem.inventory)
-            
+
             AuthenticationsList(selectedTab: $selectedTab)
                 .tabItem {
                     Label("Results", systemImage: "circle.fill")
                 }
                 .tag(MenuItem.authentications)
-            
-            Text("Logout")
-                .tabItem {
-                    Label("Logout", systemImage: "arrowshape.turn.up.forward.circle")
-                }
-                .tag(MenuItem.logout)
         }.onAppear {
             let entrupyApp = EntrupyApp.sharedInstance()
             

@@ -12,7 +12,7 @@ struct InventoryData {
     static let luxuryProducts: [any InventoryItem] = [
         LuxuryItem(
             brand: "Louis Vuitton",
-            material: "Monogram Canvas",
+            itemType: "Bags",
             customerItemID: "item-000"
         )
     ]
@@ -20,8 +20,7 @@ struct InventoryData {
     static let sneakerProducts: [any InventoryItem] = [
         SneakerItem(
             brand: "Nike",
-            styleName: "Air Jordan 1 High OG Stash",
-            usSize: "9.5",
+            itemType: "Sneakers",
             customerItemID: "item-001"
         )
     ]

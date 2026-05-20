@@ -23,32 +23,32 @@ protocol InventoryItem {
 struct SneakerItem: InventoryItem {
     let productCategory: String = "sneakers"
     let brand: String
-    let styleName: String
+    let itemType: String
     var usSize: String?
     var customerItemID: String?
     var styleCode: String?
     var upc: String?
-    
+
     var displayName: String { brand }
-    var displaySubtitle: String { styleName }
-    var id: String { customerItemID ?? "sneaker-\(brand)-\(styleName)" }
+    var displaySubtitle: String { itemType }
+    var id: String { customerItemID ?? "sneaker-\(brand)-\(itemType)" }
 
     func validateRequiredFields() throws {
         var missingFields: [String] = []
-        
+
         if brand.isEmpty { missingFields.append("brand") }
-        if styleName.isEmpty { missingFields.append("style_name") }
-        
+        if itemType.isEmpty { missingFields.append("item_type") }
+
         if !missingFields.isEmpty {
             throw InventoryItemError.missingMandatoryFields("Sneaker: \(missingFields.joined(separator: ", "))")
         }
     }
-    
+
     func buildInput() -> [String: Any] {
         return [
             "product_category": productCategory,
             "brand": brand,
-            "style_name": styleName,
+            "item_type": itemType,
             "us_size": usSize ?? "",
             "style_code": styleCode ?? "",
             "upc": upc ?? "",
@@ -57,28 +57,28 @@ struct SneakerItem: InventoryItem {
     }
 }
 
-// Apparel model (new)
+// Apparel model
 struct ApparelItem: InventoryItem {
     let productCategory: String = "apparel"
     let brand: String
     let itemType: String
     var customerItemID: String?
-    
+
     var displayName: String { brand }
     var displaySubtitle: String { itemType }
     var id: String { customerItemID ?? "apparel-\(brand)-\(itemType)" }
 
     func validateRequiredFields() throws {
         var missingFields: [String] = []
-        
+
         if brand.isEmpty { missingFields.append("brand") }
         if itemType.isEmpty { missingFields.append("item_type") }
-        
+
         if !missingFields.isEmpty {
             throw InventoryItemError.missingMandatoryFields("Apparel: \(missingFields.joined(separator: ", "))")
         }
     }
-    
+
     func buildInput() -> [String: Any] {
         return [
             "product_category": productCategory,
@@ -89,34 +89,35 @@ struct ApparelItem: InventoryItem {
     }
 }
 
-// Luxury model (new)
+// Luxury model
 struct LuxuryItem: InventoryItem {
     let productCategory: String = "luxury"
     let brand: String
-    var material: String?
+    let itemType: String
     let customerItemID: String?
 
     var displayName: String { brand }
-    var displaySubtitle: String { material ?? "" }
-    var id: String { customerItemID ?? "luxury-\(brand)-\(material ?? "")" }
+    var displaySubtitle: String { itemType }
+    var id: String { customerItemID ?? "luxury-\(brand)-\(itemType)" }
 
     func validateRequiredFields() throws {
-     var missingFields: [String] = []
-     
-     if brand.isEmpty { missingFields.append("brand") }
-     
-     if !missingFields.isEmpty {
-         throw InventoryItemError.missingMandatoryFields("Luxury: \(missingFields.joined(separator: ", "))")
-     }
+        var missingFields: [String] = []
+
+        if brand.isEmpty { missingFields.append("brand") }
+        if itemType.isEmpty { missingFields.append("item_type") }
+
+        if !missingFields.isEmpty {
+            throw InventoryItemError.missingMandatoryFields("Luxury: \(missingFields.joined(separator: ", "))")
+        }
     }
 
     func buildInput() -> [String: Any] {
-     return [
-         "product_category": productCategory,
-         "brand": brand,
-         "material": material ?? "",
-         "customer_item_id": customerItemID ?? ""
-     ]
+        return [
+            "product_category": productCategory,
+            "brand": brand,
+            "item_type": itemType,
+            "customer_item_id": customerItemID ?? ""
+        ]
     }
 }
 
@@ -140,7 +141,6 @@ struct FingerprintItem: InventoryItem {
 
     func validateRequiredFields() throws {
         // Fingerprint items always have required fields set
-        // No validation needed as all fields are provided
     }
 
     func buildInput() -> [String: Any] {
