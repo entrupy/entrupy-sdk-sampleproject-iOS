@@ -1,0 +1,15 @@
+{
+  "originHash" : "2a4a3f9cea55c9e175eb105b9d811f24223b362a73065d1927119e42d2274af9",
+  "pins" : [
+    {
+      "identity" : "entrupy-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/entrupy/entrupy-sdk-iOS.git",
+      "state" : {
+        "revision" : "2eb347459b63b0fe02317c7af2903050525653ba",
+        "version" : "2.2.1"
+      }
+    }
+  ],
+  "version" : 3
+}
