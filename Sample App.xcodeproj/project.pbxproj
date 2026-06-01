@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		830125E72E6970BA0029E7DE /* RetakeViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830125E62E6970BA0029E7DE /* RetakeViewHandler.swift */; };
 		83105AA02E4C6977006E7FB3 /* DetailViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */; };
+		8325DFE22FCE2A6300BB70D1 /* entrupy-sdk-ios in Frameworks */ = {isa = PBXBuildFile; productRef = 8325DFE12FCE2A6300BB70D1 /* entrupy-sdk-ios */; };
 		833D20352F0D1B36005A6DE8 /* MarketEdgeViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D20342F0D1B36005A6DE8 /* MarketEdgeViewHandler.swift */; };
-		838516102FBEBCE5004381C1 /* entrupy-sdk-ios in Frameworks */ = {isa = PBXBuildFile; productRef = 8385160F2FBEBCE5004381C1 /* entrupy-sdk-ios */; };
+		838515BB2FBDD059004381C1 /* entrupy-sdk-ios in Frameworks */ = {isa = PBXBuildFile; productRef = 838515BA2FBDD059004381C1 /* entrupy-sdk-ios */; };
 		839292942E659C6900E6FB88 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839292932E659C6900E6FB88 /* ConfigurationManager.swift */; };
 		83BEC7662BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BEC7652BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift */; };
 		A582F4132B9859B500721B66 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F3F82B9859B500721B66 /* LoginViewModel.swift */; };
@@ -100,7 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				838516102FBEBCE5004381C1 /* entrupy-sdk-ios in Frameworks */,
+				838515BB2FBDD059004381C1 /* entrupy-sdk-ios in Frameworks */,
+				8325DFE22FCE2A6300BB70D1 /* entrupy-sdk-ios in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +320,7 @@
 			);
 			mainGroup = B58F1553285D4823003CC0BE;
 			packageReferences = (
-				8385160E2FBEBCE5004381C1 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */,
+				8325DFE02FCE2A6300BB70D1 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B58F155D285D4823003CC0BE /* Products */;
@@ -773,20 +775,33 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8385160E2FBEBCE5004381C1 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */ = {
+		8325DFE02FCE2A6300BB70D1 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/entrupy/entrupy-sdk-iOS.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.2.1;
+				minimumVersion = 2.3.0;
+			};
+		};
+		838515B92FBDD058004381C1 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/entrupy/entrupy-sdk-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.13;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8385160F2FBEBCE5004381C1 /* entrupy-sdk-ios */ = {
+		8325DFE12FCE2A6300BB70D1 /* entrupy-sdk-ios */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8385160E2FBEBCE5004381C1 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */;
+			package = 8325DFE02FCE2A6300BB70D1 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */;
+			productName = "entrupy-sdk-ios";
+		};
+		838515BA2FBDD059004381C1 /* entrupy-sdk-ios */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 838515B92FBDD058004381C1 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */;
 			productName = "entrupy-sdk-ios";
 		};
 /* End XCSwiftPackageProductDependency section */
