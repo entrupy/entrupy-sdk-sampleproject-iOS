@@ -24,7 +24,7 @@ struct BottomTab: View {
     var body: some View {
 
         TabView(selection: $selectedTab) {
-            InventoryList(selectedTab: $selectedTab)
+            SampleCaptureView(selectedTab: $selectedTab)
                 .tabItem {
                     Label("Home", systemImage: "star.fill")
                 }
@@ -35,32 +35,6 @@ struct BottomTab: View {
                     Label("Results", systemImage: "circle.fill")
                 }
                 .tag(MenuItem.authentications)
-        }.onAppear {
-            let entrupyApp = EntrupyApp.sharedInstance()
-            
-            //Uncomment to set a custom theme
-            //entrupyApp.theme = Theme()
-            
-            if (!entrupyApp.isAuthorizationValid()){
-                SDKAuthorization.sharedInstance.createSDKAuthorizationRequest { success, error in
-                    guard error == nil else {
-                        print(error?.description ?? "")
-
-                        DispatchQueue.main.async {
-                        NotificationCenter.default.post(name: .showAlert,
-                                                        object: AlertData(title: Text("Error"),
-                                                                          message: Text(error?.description ?? ""),
-                                                                          dismissButton: .default(Text("OK"))))
-                        }
-                        
-                        return
-                    }
-                    if success {
-                        print("SDK Authorization Request created successfully!")
-                    }
-                }
-
-            }
         }
         .onChange(of: selectedTab, perform: { newValue in
             if newValue == MenuItem.logout {

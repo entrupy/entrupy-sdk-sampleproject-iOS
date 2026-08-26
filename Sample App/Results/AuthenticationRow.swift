@@ -67,6 +67,7 @@ struct AuthenticationRow: View {
                     Text(data.authItem.authentication_id)
                         .fontWeight(.medium)
                         .foregroundColor(.black)
+                        .accessibilityIdentifier(data.authItem.authentication_id)
                     
                     Text(flagStatus)
                         .foregroundColor(.gray)
@@ -130,6 +131,8 @@ struct AuthenticationRow: View {
                                 .foregroundColor(.blue).font(.system(size: 14))
                         }
                     }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("MarketEdge")
                 }
                 
                 

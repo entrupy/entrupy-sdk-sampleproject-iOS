@@ -11,6 +11,8 @@
 		83105AA02E4C6977006E7FB3 /* DetailViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */; };
 		8325DFE22FCE2A6300BB70D1 /* entrupy-sdk-ios in Frameworks */ = {isa = PBXBuildFile; productRef = 8325DFE12FCE2A6300BB70D1 /* entrupy-sdk-ios */; };
 		833D20352F0D1B36005A6DE8 /* MarketEdgeViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D20342F0D1B36005A6DE8 /* MarketEdgeViewHandler.swift */; };
+		83785A9C303F4ABB00CA003D /* SampleCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83785A9B303F4ABB00CA003D /* SampleCaptureView.swift */; };
+		83785A9D303F4ABB00CA003D /* CaptureViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83785A9A303F4ABB00CA003D /* CaptureViewHandler.swift */; };
 		838515BB2FBDD059004381C1 /* entrupy-sdk-ios in Frameworks */ = {isa = PBXBuildFile; productRef = 838515BA2FBDD059004381C1 /* entrupy-sdk-ios */; };
 		839292942E659C6900E6FB88 /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839292932E659C6900E6FB88 /* ConfigurationManager.swift */; };
 		83BEC7662BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BEC7652BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift */; };
@@ -19,12 +21,10 @@
 		A582F4152B9859B500721B66 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F3FB2B9859B500721B66 /* Theme.swift */; };
 		A582F4162B9859B500721B66 /* AuthenticationsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F3FC2B9859B500721B66 /* AuthenticationsList.swift */; };
 		A582F4172B9859B500721B66 /* BottomTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F3FD2B9859B500721B66 /* BottomTab.swift */; };
-		A582F4182B9859B500721B66 /* InventoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F3FE2B9859B500721B66 /* InventoryList.swift */; };
 		A582F41B2B9859B500721B66 /* Authentications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F4022B9859B500721B66 /* Authentications.swift */; };
 		A582F41E2B9859B500721B66 /* SampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F4052B9859B500721B66 /* SampleApp.swift */; };
 		A582F41F2B9859B500721B66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A582F4062B9859B500721B66 /* Assets.xcassets */; };
 		A582F4212B9859B500721B66 /* AuthenticationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F4092B9859B500721B66 /* AuthenticationRow.swift */; };
-		A582F4232B9859B500721B66 /* InventoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F40B2B9859B500721B66 /* InventoryRow.swift */; };
 		A582F4242B9859B500721B66 /* FlagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F40C2B9859B500721B66 /* FlagManager.swift */; };
 		A582F4252B9859B500721B66 /* SDKAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F40E2B9859B500721B66 /* SDKAuthorization.swift */; };
 		A582F4262B9859B500721B66 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F4102B9859B500721B66 /* Alert.swift */; };
@@ -58,6 +58,8 @@
 		830125E62E6970BA0029E7DE /* RetakeViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetakeViewHandler.swift; sourceTree = "<group>"; };
 		83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewHandler.swift; sourceTree = "<group>"; };
 		833D20342F0D1B36005A6DE8 /* MarketEdgeViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketEdgeViewHandler.swift; sourceTree = "<group>"; };
+		83785A9A303F4ABB00CA003D /* CaptureViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewHandler.swift; sourceTree = "<group>"; };
+		83785A9B303F4ABB00CA003D /* SampleCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCaptureView.swift; sourceTree = "<group>"; };
 		839292932E659C6900E6FB88 /* ConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationManager.swift; sourceTree = "<group>"; };
 		83BEC7652BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EntrupyModel+Extension.swift"; sourceTree = "<group>"; };
 		A582F3F82B9859B500721B66 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -65,12 +67,10 @@
 		A582F3FB2B9859B500721B66 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A582F3FC2B9859B500721B66 /* AuthenticationsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationsList.swift; sourceTree = "<group>"; };
 		A582F3FD2B9859B500721B66 /* BottomTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomTab.swift; sourceTree = "<group>"; };
-		A582F3FE2B9859B500721B66 /* InventoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryList.swift; sourceTree = "<group>"; };
 		A582F4022B9859B500721B66 /* Authentications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentications.swift; sourceTree = "<group>"; };
 		A582F4052B9859B500721B66 /* SampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleApp.swift; sourceTree = "<group>"; };
 		A582F4062B9859B500721B66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A582F4092B9859B500721B66 /* AuthenticationRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationRow.swift; sourceTree = "<group>"; };
-		A582F40B2B9859B500721B66 /* InventoryRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryRow.swift; sourceTree = "<group>"; };
 		A582F40C2B9859B500721B66 /* FlagManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagManager.swift; sourceTree = "<group>"; };
 		A582F40E2B9859B500721B66 /* SDKAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKAuthorization.swift; sourceTree = "<group>"; };
 		A582F4102B9859B500721B66 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -171,9 +171,9 @@
 		A582F42A2B985A7200721B66 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				83785A9A303F4ABB00CA003D /* CaptureViewHandler.swift */,
+				83785A9B303F4ABB00CA003D /* SampleCaptureView.swift */,
 				839292932E659C6900E6FB88 /* ConfigurationManager.swift */,
-				A582F3FE2B9859B500721B66 /* InventoryList.swift */,
-				A582F40B2B9859B500721B66 /* InventoryRow.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -381,10 +381,11 @@
 				839292942E659C6900E6FB88 /* ConfigurationManager.swift in Sources */,
 				830125E72E6970BA0029E7DE /* RetakeViewHandler.swift in Sources */,
 				A582F4262B9859B500721B66 /* Alert.swift in Sources */,
+				83785A9C303F4ABB00CA003D /* SampleCaptureView.swift in Sources */,
+				83785A9D303F4ABB00CA003D /* CaptureViewHandler.swift in Sources */,
 				A582F41E2B9859B500721B66 /* SampleApp.swift in Sources */,
 				833D20352F0D1B36005A6DE8 /* MarketEdgeViewHandler.swift in Sources */,
 				A582F4242B9859B500721B66 /* FlagManager.swift in Sources */,
-				A582F4232B9859B500721B66 /* InventoryRow.swift in Sources */,
 				A582F4272B9859B500721B66 /* KeychainUtility.swift in Sources */,
 				A582F4152B9859B500721B66 /* Theme.swift in Sources */,
 				A582F41B2B9859B500721B66 /* Authentications.swift in Sources */,
@@ -394,7 +395,6 @@
 				83BEC7662BB2ABDD008FF7C4 /* EntrupyModel+Extension.swift in Sources */,
 				A582F4212B9859B500721B66 /* AuthenticationRow.swift in Sources */,
 				A5ECD4212E4E2420008A4EEA /* InventoryData.swift in Sources */,
-				A582F4182B9859B500721B66 /* InventoryList.swift in Sources */,
 				A5ECD4232E4E244B008A4EEA /* InventoryItem.swift in Sources */,
 				A582F4252B9859B500721B66 /* SDKAuthorization.swift in Sources */,
 				A582F4172B9859B500721B66 /* BottomTab.swift in Sources */,
