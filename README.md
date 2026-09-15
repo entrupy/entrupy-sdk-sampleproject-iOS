@@ -1,6 +1,11 @@
 # Entrupy SDK for iOS
 The Entrupy SDK for iOS allows you to integrate Entrupy's sneaker authentication functionality into your Swift or Obj-C app with just a few lines of code.
 
+> [!WARNING]
+> With CocoaPods Trunk moving to a permanent read-only state in December 2026, EntrupySDK is officially deprecating distribution via CocoaPods.
+>
+> Starting **December 2, 2026**, new features, bug fixes, and security patches will only be released through Swift Package Manager (SPM). Please migrate to SPM before Trunk becomes read-only.
+
 ## 1. Registering your application
 Contact developer@entrupy.com to get your app’s bundle ID registered with entrupy. Include details about how you plan to use Entrupy in your app. If approved, you will be issued a License Key to use the SDK and credentials to run this app. 
 
@@ -11,7 +16,9 @@ Integrating the Entrupy SDK with your app currently requires Swift Package Manag
    2. Enter: `https://github.com/entrupy/entrupy-sdk-iOS`
    3. Select your version rule and add to your target
 
-### 2.1 How to use with CocoaPods 
+### 2.1 How to use with CocoaPods (deprecated)
+CocoaPods is deprecated. Starting December 2, 2026, new features, bug fixes, and security patches will only be released through SPM. Please migrate before Trunk becomes read-only.
+
 Add the EntrupySDK pod in the app target of your Podfile and then run pod install to add the EntrupySDK framework to your application.
 ```
 target 'app' do
