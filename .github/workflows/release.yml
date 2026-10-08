@@ -1,0 +1,84 @@
+# Release gate for the Sample App.
+#
+# check   (pull_request / workflow_dispatch): the project must link the SDK as a Swift
+#         package and that SDK version must already be published, i.e. the tag must exist
+#         in entrupy/entrupy-sdk-iOS. Re-run it after the SDK ships: GitHub has no
+#         cross-repo tag trigger.
+# publish (push to master): tag the merged version and create the GitHub release.
+name: Release
+
+on:
+  pull_request:
+  workflow_dispatch:
+  push:
+    branches: [master]
+
+jobs:
+  check:
+    if: github.event_name != 'push'
+    runs-on: macos-latest
+    concurrency:
+      group: check-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read the SDK version from the project
+        id: ver
+        run: |
+          PBX="Sample App.xcodeproj/project.pbxproj"
+          grep -q 'repositoryURL = "https://github.com/entrupy/entrupy-sdk-iOS' "$PBX" \
+            || { echo "::error::$PBX has no Swift package reference to entrupy-sdk-iOS; the project is still on CocoaPods"; exit 1; }
+          VER=$(grep -A4 'repositoryURL = "https://github.com/entrupy/entrupy-sdk-iOS' "$PBX" | grep -o 'minimumVersion = [0-9.]*' | cut -d' ' -f3)
+          [ -n "$VER" ] || { echo "::error::entrupy-sdk-iOS package reference in $PBX has no minimumVersion"; exit 1; }
+          echo "SDK version: $VER"
+          echo "ver=$VER" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve the SDK package (fails until the SDK tag exists)
+        run: xcodebuild -resolvePackageDependencies -project "Sample App.xcodeproj" -scheme "Sample App" -clonedSourcePackagesDirPath "$RUNNER_TEMP/spm"
+
+      - name: Assert the resolved SDK version
+        env:
+          VER: ${{ steps.ver.outputs.ver }}
+        run: |
+          RESOLVED=$(jq -r '.pins[] | select(.identity == "entrupy-sdk-ios") | .state.version' "Sample App.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved")
+          echo "Resolved entrupy-sdk-ios $RESOLVED, project asks for $VER"
+          [ "$RESOLVED" = "$VER" ] || { echo "::error::resolved SDK $RESOLVED does not match the project's $VER"; exit 1; }
+
+  publish:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read the SDK version from the project
+        id: ver
+        run: |
+          PBX="Sample App.xcodeproj/project.pbxproj"
+          grep -q 'repositoryURL = "https://github.com/entrupy/entrupy-sdk-iOS' "$PBX" \
+            || { echo "::error::$PBX has no Swift package reference to entrupy-sdk-iOS; the project is still on CocoaPods"; exit 1; }
+          VER=$(grep -A4 'repositoryURL = "https://github.com/entrupy/entrupy-sdk-iOS' "$PBX" | grep -o 'minimumVersion = [0-9.]*' | cut -d' ' -f3)
+          [ -n "$VER" ] || { echo "::error::entrupy-sdk-iOS package reference in $PBX has no minimumVersion"; exit 1; }
+          echo "SDK version: $VER"
+          echo "ver=$VER" >> "$GITHUB_OUTPUT"
+
+      - name: Tag and release
+        env:
+          VER: ${{ steps.ver.outputs.ver }}
+        run: |
+          if gh release view "$VER" >/dev/null 2>&1; then
+            echo "Release $VER already exists, nothing to do"
+            exit 0
+          fi
+          if git rev-parse -q --verify "refs/tags/$VER" >/dev/null || git ls-remote --exit-code --tags origin "refs/tags/$VER" >/dev/null; then
+            echo "::error::Tag $VER already exists but has no GitHub release. Check what the tag points at and create the release by hand; this job never moves or deletes tags."
+            exit 1
+          fi
+          git tag "$VER"
+          git push origin "$VER"
+          gh release create "$VER" --title "Release $VER" \
+            --notes "Sample App for Entrupy SDK $VER. SDK release: https://github.com/entrupy/entrupy-sdk-iOS/releases/tag/$VER"
