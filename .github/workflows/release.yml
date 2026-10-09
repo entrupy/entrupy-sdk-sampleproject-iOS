@@ -2,10 +2,13 @@
 #
 # check   (pull_request / workflow_dispatch): the SDK version the project is released
 #         against must already be published, i.e. tag <ver> must exist in
-#         entrupy/entrupy-sdk-iOS. Re-run it after the SDK ships: GitHub has no
-#         cross-repo tag trigger. When the project links the SDK as a Swift package the
-#         package graph is also resolved as a build sanity check.
-# publish (push to master): tag the merged version and create the GitHub release.
+#         entrupy/entrupy-sdk-iOS. When the project links the SDK as a Swift package
+#         the package graph is also resolved as a build sanity check.
+# merge   (workflow_dispatch only, after check): merges the open "Release <ver>" PR for
+#         this branch, tags the merge commit and creates the GitHub release. The SDK's
+#         own publish pipeline dispatches this workflow on release/<ver> right after it
+#         tags the SDK, so no human touches the Sample App release.
+# publish (push to master): fallback for a PR merged by hand. Tags and releases once.
 #
 # The version is read by .github/scripts/sdk-version.sh (SPM pin, else README footer).
 name: Release
@@ -35,11 +38,49 @@ jobs:
           VER: ${{ steps.ver.outputs.ver }}
         run: |
           git ls-remote --exit-code --tags https://github.com/entrupy/entrupy-sdk-iOS.git "refs/tags/$VER" \
-            || { echo "::error::SDK $VER is not tagged in entrupy/entrupy-sdk-iOS yet. Merge the SDK release PR first, then re-run this check."; exit 1; }
+            || { echo "::error::SDK $VER is not tagged in entrupy/entrupy-sdk-iOS yet. Merge the SDK release PR first; its publish pipeline re-runs this workflow."; exit 1; }
 
       - name: Resolve the SDK package
         if: steps.ver.outputs.spm == 'true'
         run: xcodebuild -resolvePackageDependencies -project "Sample App.xcodeproj" -scheme "Sample App" -clonedSourcePackagesDirPath "$RUNNER_TEMP/spm"
+
+  merge:
+    if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/master'
+    needs: check
+    runs-on: ubuntu-latest
+    concurrency:
+      group: publish
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read the SDK version from the project
+        id: ver
+        run: .github/scripts/sdk-version.sh
+
+      - name: Merge the release PR, then tag and release
+        env:
+          VER: ${{ steps.ver.outputs.ver }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          [ "$BRANCH" = "release/$VER" ] \
+            || { echo "::error::Dispatched on '$BRANCH' but the project says SDK $VER; expected branch release/$VER."; exit 1; }
+          PR=$(gh pr list --head "$BRANCH" --base master --state open --json number --jq '.[0].number // empty')
+          if [ -z "$PR" ]; then
+            MERGED=$(gh pr list --head "$BRANCH" --base master --state merged --json mergeCommit --jq '.[0].mergeCommit.oid // empty')
+            [ -n "$MERGED" ] || { echo "::error::No open or merged PR from $BRANCH to master."; exit 1; }
+            echo "PR from $BRANCH already merged at $MERGED"
+          else
+            gh pr merge "$PR" --squash --subject "Release $VER" --body "Sample App for Entrupy SDK $VER."
+            MERGED=$(gh pr view "$PR" --json mergeCommit --jq '.mergeCommit.oid')
+            echo "Merged PR #$PR at $MERGED"
+          fi
+          .github/scripts/publish-release.sh "$VER" "$MERGED"
 
   publish:
     if: github.event_name == 'push'
@@ -61,16 +102,4 @@ jobs:
       - name: Tag and release
         env:
           VER: ${{ steps.ver.outputs.ver }}
-        run: |
-          if gh release view "$VER" >/dev/null 2>&1; then
-            echo "Release $VER already exists, nothing to do"
-            exit 0
-          fi
-          if git rev-parse -q --verify "refs/tags/$VER" >/dev/null || git ls-remote --exit-code --tags origin "refs/tags/$VER" >/dev/null; then
-            echo "::error::Tag $VER already exists but has no GitHub release. Check what the tag points at and create the release by hand; this job never moves or deletes tags."
-            exit 1
-          fi
-          git tag "$VER"
-          git push origin "$VER"
-          gh release create "$VER" --title "Release $VER" \
-            --notes "Sample App for Entrupy SDK $VER. SDK release: https://github.com/entrupy/entrupy-sdk-iOS/releases/tag/$VER"
+        run: .github/scripts/publish-release.sh "$VER" "$GITHUB_SHA"
