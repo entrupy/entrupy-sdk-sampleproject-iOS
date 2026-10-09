@@ -1,27 +1,26 @@
 # Release gate for the Sample App.
 #
-# check   (pull_request / workflow_dispatch): the SDK version the project is released
-#         against must already be published, i.e. tag <ver> must exist in
-#         entrupy/entrupy-sdk-iOS. When the project links the SDK as a Swift package
-#         the package graph is also resolved as a build sanity check.
-# merge   (workflow_dispatch only, after check): merges the open "Release <ver>" PR for
-#         this branch, tags the merge commit and creates the GitHub release. The SDK's
-#         own publish pipeline dispatches this workflow on release/<ver> right after it
-#         tags the SDK, so no human touches the Sample App release.
-# publish (push to master): fallback for a PR merged by hand. Tags and releases once.
+# check   (every run): the SDK version the project is released against must already be
+#         published, i.e. tag <ver> must exist in entrupy/entrupy-sdk-iOS. When the
+#         project links the SDK as a Swift package the package graph is also resolved.
+# merge   (pull_request from release/<ver>, after check): merges the PR, tags the squash
+#         commit and creates the GitHub release. The PR's own run fails at check while
+#         the SDK is unpublished; the SDK publish pipeline re-runs it right after tagging
+#         the SDK, so no human touches the Sample App release.
+#         Only runs of the pull_request event count toward the required status check,
+#         so this is deliberately not a workflow_dispatch job.
+# publish (push to master, after check): fallback for a PR merged by hand.
 #
 # The version is read by .github/scripts/sdk-version.sh (SPM pin, else README footer).
 name: Release
 
 on:
   pull_request:
-  workflow_dispatch:
   push:
     branches: [master]
 
 jobs:
   check:
-    if: github.event_name != 'push'
     runs-on: macos-latest
     concurrency:
       group: check-${{ github.event.pull_request.number || github.ref }}
@@ -38,14 +37,14 @@ jobs:
           VER: ${{ steps.ver.outputs.ver }}
         run: |
           git ls-remote --exit-code --tags https://github.com/entrupy/entrupy-sdk-iOS.git "refs/tags/$VER" \
-            || { echo "::error::SDK $VER is not tagged in entrupy/entrupy-sdk-iOS yet. Merge the SDK release PR first; its publish pipeline re-runs this workflow."; exit 1; }
+            || { echo "::error::SDK $VER is not tagged in entrupy/entrupy-sdk-iOS yet. Merge the SDK release PR; its publish pipeline re-runs this workflow. To retry by hand: Re-run jobs."; exit 1; }
 
       - name: Resolve the SDK package
         if: steps.ver.outputs.spm == 'true'
         run: xcodebuild -resolvePackageDependencies -project "Sample App.xcodeproj" -scheme "Sample App" -clonedSourcePackagesDirPath "$RUNNER_TEMP/spm"
 
   merge:
-    if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/master'
+    if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'release/')
     needs: check
     runs-on: ubuntu-latest
     concurrency:
@@ -66,24 +65,25 @@ jobs:
       - name: Merge the release PR, then tag and release
         env:
           VER: ${{ steps.ver.outputs.ver }}
-          BRANCH: ${{ github.ref_name }}
+          BRANCH: ${{ github.head_ref }}
+          PR: ${{ github.event.pull_request.number }}
         run: |
           [ "$BRANCH" = "release/$VER" ] \
-            || { echo "::error::Dispatched on '$BRANCH' but the project says SDK $VER; expected branch release/$VER."; exit 1; }
-          PR=$(gh pr list --head "$BRANCH" --base master --state open --json number --jq '.[0].number // empty')
-          if [ -z "$PR" ]; then
-            MERGED=$(gh pr list --head "$BRANCH" --base master --state merged --json mergeCommit --jq '.[0].mergeCommit.oid // empty')
-            [ -n "$MERGED" ] || { echo "::error::No open or merged PR from $BRANCH to master."; exit 1; }
-            echo "PR from $BRANCH already merged at $MERGED"
+            || { echo "::error::PR branch is '$BRANCH' but the project says SDK $VER; expected release/$VER."; exit 1; }
+          STATE=$(gh pr view "$PR" --json state --jq .state)
+          if [ "$STATE" = "MERGED" ]; then
+            MERGED=$(gh pr view "$PR" --json mergeCommit --jq .mergeCommit.oid)
+            echo "PR #$PR already merged at $MERGED"
           else
             gh pr merge "$PR" --squash --subject "Release $VER" --body "Sample App for Entrupy SDK $VER."
-            MERGED=$(gh pr view "$PR" --json mergeCommit --jq '.mergeCommit.oid')
+            MERGED=$(gh pr view "$PR" --json mergeCommit --jq .mergeCommit.oid)
             echo "Merged PR #$PR at $MERGED"
           fi
           .github/scripts/publish-release.sh "$VER" "$MERGED"
 
   publish:
     if: github.event_name == 'push'
+    needs: check
     runs-on: ubuntu-latest
     concurrency:
       group: publish

@@ -9,7 +9,13 @@ COMMIT="$2"
 [ -n "$VER" ] && [ -n "$COMMIT" ] || { echo "usage: $0 <ver> <commit>"; exit 2; }
 
 if gh release view "$VER" >/dev/null 2>&1; then
-  echo "Release $VER already exists, nothing to do"
+  # Peeled ref (annotated tag) sorts after the plain one; take the last line.
+  TAGGED=$(git ls-remote origin "refs/tags/$VER" "refs/tags/$VER^{}" | awk '{print $1}' | tail -1)
+  if [ "$TAGGED" = "$COMMIT" ]; then
+    echo "Release $VER already exists at $COMMIT, nothing to do"
+  else
+    echo "::warning::Release $VER already exists and its tag points at ${TAGGED:-nothing}, not at $COMMIT. Left untouched; this job never moves tags."
+  fi
   exit 0
 fi
 
