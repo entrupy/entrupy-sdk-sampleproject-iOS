@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6556D7C32DE8E4E800608566 /* SampleAppUnitTests.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 6556D7C22DE8E4E800608566 /* SampleAppUnitTests.xctestplan */; };
-		65EE58232F2DAE7C00E13508 /* SampleAppUITests1.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 65EE581F2F2DAE6F00E13508 /* SampleAppUITests1.xctestplan */; };
-		65EE58242F2DAE7C00E13508 /* SampleAppUITests2.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 65EE58202F2DAE6F00E13508 /* SampleAppUITests2.xctestplan */; };
+		5B92898E423ED96E1C4FC0CF /* entrupy-sdk-ios in Frameworks */ = {isa = PBXBuildFile; productRef = 009657E2A1021A6EC8F8062F /* entrupy-sdk-ios */; };
 		830125E72E6970BA0029E7DE /* RetakeViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830125E62E6970BA0029E7DE /* RetakeViewHandler.swift */; };
 		83105AA02E4C6977006E7FB3 /* DetailViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */; };
 		833D20352F0D1B36005A6DE8 /* MarketEdgeViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833D20342F0D1B36005A6DE8 /* MarketEdgeViewHandler.swift */; };
@@ -33,35 +31,9 @@
 		A582F4282B9859B500721B66 /* Foundation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A582F4122B9859B500721B66 /* Foundation+Extensions.swift */; };
 		A5ECD4212E4E2420008A4EEA /* InventoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ECD4202E4E2420008A4EEA /* InventoryData.swift */; };
 		A5ECD4232E4E244B008A4EEA /* InventoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ECD4222E4E244B008A4EEA /* InventoryItem.swift */; };
-		C1A8DFE2343225D22532CEA8 /* Pods_Sample_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FD27A063A63C52CF577AE1 /* Pods_Sample_App.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		6545E1BB2DE7660200EA096D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B58F1554285D4823003CC0BE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B58F155B285D4823003CC0BE;
-			remoteInfo = "Sample App";
-		};
-		65C2654B2DE7746200545245 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B58F1554285D4823003CC0BE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B58F155B285D4823003CC0BE;
-			remoteInfo = "Sample App";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		58FD27A063A63C52CF577AE1 /* Pods_Sample_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6545E1B72DE7660200EA096D /* Sample AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sample AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6556D7C22DE8E4E800608566 /* SampleAppUnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SampleAppUnitTests.xctestplan; sourceTree = "<group>"; };
-		65C265452DE7746200545245 /* Sample AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Sample AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		65EC5F222DE018A0004558D7 /* EntrupySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EntrupySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		65EE581F2F2DAE6F00E13508 /* SampleAppUITests1.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SampleAppUITests1.xctestplan; sourceTree = "<group>"; };
-		65EE58202F2DAE6F00E13508 /* SampleAppUITests2.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SampleAppUITests2.xctestplan; sourceTree = "<group>"; };
-		7ACF670B09E310CCB458F3E1 /* Pods-Sample App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample App.debug.xcconfig"; path = "Target Support Files/Pods-Sample App/Pods-Sample App.debug.xcconfig"; sourceTree = "<group>"; };
 		830125E62E6970BA0029E7DE /* RetakeViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetakeViewHandler.swift; sourceTree = "<group>"; };
 		83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewHandler.swift; sourceTree = "<group>"; };
 		833D20342F0D1B36005A6DE8 /* MarketEdgeViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketEdgeViewHandler.swift; sourceTree = "<group>"; };
@@ -87,74 +59,20 @@
 		A5ECD4202E4E2420008A4EEA /* InventoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryData.swift; sourceTree = "<group>"; };
 		A5ECD4222E4E244B008A4EEA /* InventoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryItem.swift; sourceTree = "<group>"; };
 		B58F155C285D4823003CC0BE /* Sample App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1D0924C2BE6257EDF609CB4 /* Pods-Sample App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample App.release.xcconfig"; path = "Target Support Files/Pods-Sample App/Pods-Sample App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		65C265462DE7746200545245 /* SampleAppUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
-			path = SampleAppUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
-		6545E1B42DE7660200EA096D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		65C265422DE7746200545245 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B58F1559285D4823003CC0BE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1A8DFE2343225D22532CEA8 /* Pods_Sample_App.framework in Frameworks */,
+				5B92898E423ED96E1C4FC0CF /* entrupy-sdk-ios in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A9E4AE4F84E2D2E06B8E127 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7ACF670B09E310CCB458F3E1 /* Pods-Sample App.debug.xcconfig */,
-				C1D0924C2BE6257EDF609CB4 /* Pods-Sample App.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
-		6556D7C02DE8E4BA00608566 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				6556D7C12DE8E4CB00608566 /* Testplans */,
-				65C265462DE7746200545245 /* SampleAppUITests */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		6556D7C12DE8E4CB00608566 /* Testplans */ = {
-			isa = PBXGroup;
-			children = (
-				65EE581F2F2DAE6F00E13508 /* SampleAppUITests1.xctestplan */,
-				65EE58202F2DAE6F00E13508 /* SampleAppUITests2.xctestplan */,
-				6556D7C22DE8E4E800608566 /* SampleAppUnitTests.xctestplan */,
-			);
-			path = Testplans;
-			sourceTree = "<group>";
-		};
 		A582F3F72B9859B500721B66 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,8 +153,6 @@
 		AC9390226EA6F66ACC0E173A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				65EC5F222DE018A0004558D7 /* EntrupySDK.framework */,
-				58FD27A063A63C52CF577AE1 /* Pods_Sample_App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -244,11 +160,9 @@
 		B58F1553285D4823003CC0BE = {
 			isa = PBXGroup;
 			children = (
-				6556D7C02DE8E4BA00608566 /* Tests */,
 				B58F155E285D4823003CC0BE /* Sample App */,
 				B58F155D285D4823003CC0BE /* Products */,
 				AC9390226EA6F66ACC0E173A /* Frameworks */,
-				2A9E4AE4F84E2D2E06B8E127 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -256,8 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				B58F155C285D4823003CC0BE /* Sample App.app */,
-				6545E1B72DE7660200EA096D /* Sample AppTests.xctest */,
-				65C265452DE7746200545245 /* Sample AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -283,60 +195,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6545E1B62DE7660200EA096D /* Sample AppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6545E1BF2DE7660200EA096D /* Build configuration list for PBXNativeTarget "Sample AppTests" */;
-			buildPhases = (
-				6545E1B32DE7660200EA096D /* Sources */,
-				6545E1B42DE7660200EA096D /* Frameworks */,
-				6545E1B52DE7660200EA096D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6545E1BC2DE7660200EA096D /* PBXTargetDependency */,
-			);
-			name = "Sample AppTests";
-			productName = "Sample AppTests";
-			productReference = 6545E1B72DE7660200EA096D /* Sample AppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		65C265442DE7746200545245 /* Sample AppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 65C2654F2DE7746200545245 /* Build configuration list for PBXNativeTarget "Sample AppUITests" */;
-			buildPhases = (
-				65C265412DE7746200545245 /* Sources */,
-				65C265422DE7746200545245 /* Frameworks */,
-				65C265432DE7746200545245 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				65C2654C2DE7746200545245 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				65C265462DE7746200545245 /* SampleAppUITests */,
-			);
-			name = "Sample AppUITests";
-			productName = "Sample AppUITests";
-			productReference = 65C265452DE7746200545245 /* Sample AppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		B58F155B285D4823003CC0BE /* Sample App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B58F1580285D4824003CC0BE /* Build configuration list for PBXNativeTarget "Sample App" */;
 			buildPhases = (
-				FED3E4D54A88EEA135EAE770 /* [CP] Check Pods Manifest.lock */,
 				B58F1558285D4823003CC0BE /* Sources */,
 				B58F1559285D4823003CC0BE /* Frameworks */,
 				B58F155A285D4823003CC0BE /* Resources */,
-				50DD0DF1A79CA6A23EEF10BE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Sample App";
+			packageProductDependencies = (
+				009657E2A1021A6EC8F8062F /* entrupy-sdk-ios */,
+			);
 			productName = "Sneaker Authentication Demo";
 			productReference = B58F155C285D4823003CC0BE /* Sample App.app */;
 			productType = "com.apple.product-type.application";
@@ -351,14 +225,6 @@
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					6545E1B62DE7660200EA096D = {
-						CreatedOnToolsVersion = 16.3;
-						TestTargetID = B58F155B285D4823003CC0BE;
-					};
-					65C265442DE7746200545245 = {
-						CreatedOnToolsVersion = 16.3;
-						TestTargetID = B58F155B285D4823003CC0BE;
-					};
 					B58F155B285D4823003CC0BE = {
 						CreatedOnToolsVersion = 13.4.1;
 						LastSwiftMigration = 1520;
@@ -373,36 +239,20 @@
 				Base,
 			);
 			mainGroup = B58F1553285D4823003CC0BE;
+			packageReferences = (
+				92621AD15B9898CD6B0477C2 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B58F155D285D4823003CC0BE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				B58F155B285D4823003CC0BE /* Sample App */,
-				6545E1B62DE7660200EA096D /* Sample AppTests */,
-				65C265442DE7746200545245 /* Sample AppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6545E1B52DE7660200EA096D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6556D7C32DE8E4E800608566 /* SampleAppUnitTests.xctestplan in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		65C265432DE7746200545245 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				65EE58232F2DAE7C00E13508 /* SampleAppUITests1.xctestplan in Resources */,
-				65EE58242F2DAE7C00E13508 /* SampleAppUITests2.xctestplan in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B58F155A285D4823003CC0BE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -413,63 +263,7 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		50DD0DF1A79CA6A23EEF10BE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sample App/Pods-Sample App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sample App/Pods-Sample App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sample App/Pods-Sample App-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FED3E4D54A88EEA135EAE770 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Sample App-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		6545E1B32DE7660200EA096D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		65C265412DE7746200545245 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B58F1558285D4823003CC0BE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -501,112 +295,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		6545E1BC2DE7660200EA096D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B58F155B285D4823003CC0BE /* Sample App */;
-			targetProxy = 6545E1BB2DE7660200EA096D /* PBXContainerItemProxy */;
-		};
-		65C2654C2DE7746200545245 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B58F155B285D4823003CC0BE /* Sample App */;
-			targetProxy = 65C2654B2DE7746200545245 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		6545E1BD2DE7660200EA096D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.8;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.entrupy-plus.co.Sample-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sample App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sample App";
-			};
-			name = Debug;
-		};
-		6545E1BE2DE7660200EA096D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.8;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.entrupy-plus.co.Sample-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sample App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sample App";
-			};
-			name = Release;
-		};
-		65C2654D2DE7746200545245 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.8;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.entrupy-plus.co.Sample-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Sample App";
-			};
-			name = Debug;
-		};
-		65C2654E2DE7746200545245 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.8;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.entrupy-plus.co.Sample-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Sample App";
-			};
-			name = Release;
-		};
 		B58F157E285D4824003CC0BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -727,7 +416,6 @@
 		};
 		B58F1581285D4824003CC0BE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7ACF670B09E310CCB458F3E1 /* Pods-Sample App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -757,13 +445,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.2;
+				MARKETING_VERSION = 2.3.3;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					"\"EntrupySDK\"",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.entrupy.Sneaker-Authentication-Demo";
 				PRODUCT_NAME = "Sample App";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -781,7 +465,6 @@
 		};
 		B58F1582285D4824003CC0BE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1D0924C2BE6257EDF609CB4 /* Pods-Sample App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -811,12 +494,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.2;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					"\"EntrupySDK\"",
-				);
+				MARKETING_VERSION = 2.3.3;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.entrupy.Sneaker-Authentication-Demo";
 				PRODUCT_NAME = "Sample App";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -834,24 +513,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6545E1BF2DE7660200EA096D /* Build configuration list for PBXNativeTarget "Sample AppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6545E1BD2DE7660200EA096D /* Debug */,
-				6545E1BE2DE7660200EA096D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		65C2654F2DE7746200545245 /* Build configuration list for PBXNativeTarget "Sample AppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				65C2654D2DE7746200545245 /* Debug */,
-				65C2654E2DE7746200545245 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		B58F1557285D4823003CC0BE /* Build configuration list for PBXProject "Sample App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -871,6 +532,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		92621AD15B9898CD6B0477C2 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/entrupy/entrupy-sdk-iOS.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.3.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		009657E2A1021A6EC8F8062F /* entrupy-sdk-ios */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92621AD15B9898CD6B0477C2 /* XCRemoteSwiftPackageReference "entrupy-sdk-iOS" */;
+			productName = "entrupy-sdk-ios";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B58F1554285D4823003CC0BE /* Project object */;
 }
