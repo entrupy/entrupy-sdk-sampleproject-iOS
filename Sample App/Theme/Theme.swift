@@ -17,6 +17,59 @@ class Theme: EntrupyTheme {
     
 }
 
+class SamplePartialTheme: EntrupyTheme {
+    var borderColor: UIColor? = nil
+    var backgroundColor: UIColor? = UIColor.white
+    var foregroundColor: UIColor? = nil
+}
+
+class SampleBlackTheme: EntrupyTheme {
+    var borderColor: UIColor? = UIColor.darkGray
+    var backgroundColor: UIColor? = UIColor.black
+    var foregroundColor: UIColor? = UIColor.white
+}
+
+enum SampleThemeOption: String, CaseIterable, Identifiable {
+    case sdkDefault
+    case light
+    case partial
+    case black
+
+    static let storageKey = "sample_app_sdk_theme"
+
+    static var stored: SampleThemeOption {
+        UserDefaults.standard.string(forKey: storageKey).flatMap(SampleThemeOption.init(rawValue:)) ?? .sdkDefault
+    }
+
+    var id: Self { self }
+
+    var title: String {
+        switch self {
+        case .sdkDefault:
+            return "Default"
+        case .light:
+            return "Light"
+        case .partial:
+            return "Partial"
+        case .black:
+            return "Black"
+        }
+    }
+
+    var theme: EntrupyTheme? {
+        switch self {
+        case .sdkDefault:
+            return nil
+        case .light:
+            return Theme()
+        case .partial:
+            return SamplePartialTheme()
+        case .black:
+            return SampleBlackTheme()
+        }
+    }
+}
+
 
 enum EntrupyColors {
     private static let sdkBundle = Bundle(for: EntrupyApp.self)

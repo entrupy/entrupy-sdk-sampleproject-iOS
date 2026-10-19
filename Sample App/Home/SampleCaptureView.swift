@@ -80,6 +80,7 @@ struct SampleCaptureView: View {
     @State private var captureMode: CaptureMode = .authentication
     @State private var fingerprintWorkflow: FingerprintWorkflow = .register
     @State private var fingerprintCompareIdentifier: FingerprintCompareIdentifier = .customerItemID
+    @AppStorage(SampleThemeOption.storageKey) private var sdkTheme: SampleThemeOption = .sdkDefault
 
     @Binding var selectedTab: MenuItem
 
@@ -132,6 +133,14 @@ struct SampleCaptureView: View {
             }
 
             captureModeSegment
+
+            VStack(alignment: .leading, spacing: 8) {
+                Text("SDK Theme")
+                    .font(.system(size: 12, design: .monospaced))
+                    .foregroundColor(EntrupyColors.subtitleText)
+
+                sdkThemeSegment
+            }
 
             if captureMode == .fingerprint {
                 VStack(alignment: .leading, spacing: 8) {
@@ -195,6 +204,33 @@ struct SampleCaptureView: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityIdentifier("sample_app_capture_mode_\(mode.title.lowercased())")
+            }
+        }
+        .padding(4)
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(EntrupyColors.fieldBorder, lineWidth: 1)
+        )
+    }
+
+    private var sdkThemeSegment: some View {
+        HStack(spacing: 4) {
+            ForEach(SampleThemeOption.allCases) { option in
+                Button {
+                    sdkTheme = option
+                    entrupyApp.theme = option.theme
+                } label: {
+                    Text(option.title)
+                        .font(.system(size: 13, weight: .semibold, design: .monospaced))
+                        .foregroundColor(option == sdkTheme ? .black : EntrupyColors.fieldText)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 32)
+                        .background(
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(option == sdkTheme ? EntrupyColors.gold : .clear)
+                        )
+                }
+                .buttonStyle(.plain)
             }
         }
         .padding(4)
