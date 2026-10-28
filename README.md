@@ -52,4 +52,4 @@ The Entrupy SDK supports iOS 15.8 and up.
 
 
 ---
-SDK Version: 2.3.5
+SDK Version: 2.3.6
