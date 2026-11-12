@@ -13,7 +13,7 @@ import EntrupySDK
 final class CaptureViewHandler: NSObject, ObservableObject, EntrupyCaptureDelegate {
     private let entrupyApp = EntrupyApp.sharedInstance()
 
-    func startCapture(with input: [String: Any]) {
+    func startCapture(with input: [String: Any], runsPreResultHook: Bool) {
         guard let viewController = UIApplication.shared.connectedScenes
             .compactMap({ $0 as? UIWindowScene })
             .first?.windows.first?.rootViewController else {
@@ -21,7 +21,20 @@ final class CaptureViewHandler: NSObject, ObservableObject, EntrupyCaptureDelega
         }
 
         entrupyApp.captureDelegate = self
-        entrupyApp.startCapture(forItem: input, viewController: viewController)
+        if runsPreResultHook {
+            entrupyApp.startCapture(forItem: input, viewController: viewController) { sdkViewController, decision in
+                let host = UIHostingController(rootView: PreResultHookModalView { [weak sdkViewController] proceed in
+                    // Answer after the modal is gone so the SDK can present on top right away.
+                    sdkViewController?.dismiss(animated: true) {
+                        proceed ? decision.proceed() : decision.cancel()
+                    }
+                })
+                host.modalPresentationStyle = .fullScreen
+                sdkViewController.present(host, animated: true)
+            }
+        } else {
+            entrupyApp.startCapture(forItem: input, viewController: viewController)
+        }
     }
 
     func didCaptureTimeout(forItem item: [AnyHashable: Any]) {
