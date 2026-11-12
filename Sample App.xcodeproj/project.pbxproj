@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AADCE5661AFF79D90E6BBD2 /* PreResultHookModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0497EC6938AE93D24E140730 /* PreResultHookModalView.swift */; };
 		5B92898E423ED96E1C4FC0CF /* entrupy-sdk-ios in Frameworks */ = {isa = PBXBuildFile; productRef = 009657E2A1021A6EC8F8062F /* entrupy-sdk-ios */; };
 		830125E72E6970BA0029E7DE /* RetakeViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830125E62E6970BA0029E7DE /* RetakeViewHandler.swift */; };
 		83105AA02E4C6977006E7FB3 /* DetailViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0497EC6938AE93D24E140730 /* PreResultHookModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreResultHookModalView.swift; sourceTree = "<group>"; };
 		830125E62E6970BA0029E7DE /* RetakeViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetakeViewHandler.swift; sourceTree = "<group>"; };
 		83105A9F2E4C6977006E7FB3 /* DetailViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewHandler.swift; sourceTree = "<group>"; };
 		833D20342F0D1B36005A6DE8 /* MarketEdgeViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketEdgeViewHandler.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				839292932E659C6900E6FB88 /* ConfigurationManager.swift */,
 				A582F3FE2B9859B500721B66 /* SampleCaptureView.swift */,
 				83B238B73018AD4100AD13E4 /* CaptureViewHandler.swift */,
+				0497EC6938AE93D24E140730 /* PreResultHookModalView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				A582F4132B9859B500721B66 /* LoginViewModel.swift in Sources */,
 				A582F4162B9859B500721B66 /* AuthenticationsList.swift in Sources */,
 				83B238B83018AD4100AD13E4 /* CaptureViewHandler.swift in Sources */,
+				0AADCE5661AFF79D90E6BBD2 /* PreResultHookModalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +451,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.6;
+				MARKETING_VERSION = 2.3.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.entrupy.Sneaker-Authentication-Demo";
@@ -498,7 +502,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.6;
+				MARKETING_VERSION = 2.3.7;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.entrupy.Sneaker-Authentication-Demo";
 				PRODUCT_NAME = "Sample App";
@@ -543,7 +547,7 @@
 			repositoryURL = "https://github.com/entrupy/entrupy-sdk-iOS.git";
 			requirement = {
 				kind = exactVersion;
-				version = 2.3.6;
+				version = 2.3.7;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

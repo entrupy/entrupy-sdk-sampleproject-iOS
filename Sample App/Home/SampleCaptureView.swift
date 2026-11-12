@@ -81,6 +81,7 @@ struct SampleCaptureView: View {
     @State private var fingerprintWorkflow: FingerprintWorkflow = .register
     @State private var fingerprintCompareIdentifier: FingerprintCompareIdentifier = .customerItemID
     @AppStorage(SampleThemeOption.storageKey) private var sdkTheme: SampleThemeOption = .sdkDefault
+    @AppStorage("sample_app_runs_pre_result_hook") private var runsPreResultHook = false
 
     @Binding var selectedTab: MenuItem
 
@@ -92,6 +93,9 @@ struct SampleCaptureView: View {
                 VStack(spacing: 20) {
                     titleBar
                     captureConfigurationCard
+                    if captureMode == .authentication {
+                        preResultHookCard
+                    }
                     startCaptureButton
                     logoutButton
                     poweredByFooter
@@ -178,6 +182,30 @@ struct SampleCaptureView: View {
                 placeholder: itemIdentifierPlaceholder
             )
             .accessibilityIdentifier(itemIdentifierAccessibilityIdentifier)
+        }
+        .padding(20)
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(EntrupyColors.cardBackground)
+        )
+    }
+
+    private var preResultHookCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Pre-result hook")
+                    .font(.system(size: 20, weight: .bold, design: .monospaced))
+                    .foregroundColor(.white)
+                Text("On opens a fake host step once the uploads finish, as startCapture(preResultHook: ...). Proceed submits; Cancel or closing it shows the hand-over screen to try again.")
+                    .font(.system(size: 13, design: .monospaced))
+                    .foregroundColor(EntrupyColors.subtitleText)
+            }
+            Toggle(isOn: $runsPreResultHook) {
+                Text("Run a fake pre-result hook")
+                    .font(.system(size: 14, design: .monospaced))
+                    .foregroundColor(EntrupyColors.fieldText)
+            }
+            .toggleStyle(SwitchToggleStyle(tint: EntrupyColors.gold))
         }
         .padding(20)
         .background(
@@ -437,7 +465,7 @@ struct SampleCaptureView: View {
             }
         }
 
-        captureViewHandler.startCapture(with: input)
+        captureViewHandler.startCapture(with: input, runsPreResultHook: captureMode == .authentication && runsPreResultHook)
     }
 
     private func ensureAuthorizedAndLoadConfig() {
