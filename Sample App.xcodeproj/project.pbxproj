@@ -451,7 +451,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.7;
+				MARKETING_VERSION = 2.3.8;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.entrupy.Sneaker-Authentication-Demo";
@@ -502,7 +502,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.3.7;
+				MARKETING_VERSION = 2.3.8;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.entrupy.Sneaker-Authentication-Demo";
 				PRODUCT_NAME = "Sample App";
@@ -547,7 +547,7 @@
 			repositoryURL = "https://github.com/entrupy/entrupy-sdk-iOS.git";
 			requirement = {
 				kind = exactVersion;
-				version = 2.3.7;
+				version = 2.3.8;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
